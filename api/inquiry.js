@@ -1,12 +1,12 @@
-// netlify/functions/inquiry.js
+// api/inquiry.js
 
-exports.handler = async (event) => {
-    if (event.httpMethod !== "POST") {
-        return { statusCode: 405, body: "Method Not Allowed" };
+export default async function handler(req, res) {
+    if (req.method !== "POST") {
+        return res.status(405).json({ error: "Method Not Allowed" });
     }
 
     try {
-        const body = JSON.parse(event.body || "{}");
+        const body = req.body;
 
         const name = (body.name || "").trim();
         const phone = (body.phone || "").trim();
@@ -15,7 +15,7 @@ exports.handler = async (event) => {
         const instructions = (body.instructions || "").trim();
 
         if (!name || !phone) {
-            return { statusCode: 400, body: JSON.stringify({ error: "Name and Phone required" }) };
+            return res.status(400).json({ error: "Name and Phone required" });
         }
 
         const AIRTABLE_PAT = process.env.AIRTABLE_PAT;
@@ -23,10 +23,7 @@ exports.handler = async (event) => {
         const INQUIRY_TABLE = process.env.INQUIRY_TABLE || "Quick Inquiries";
 
         if (!AIRTABLE_PAT || !AIRTABLE_BASE_ID) {
-            return {
-                statusCode: 500,
-                body: JSON.stringify({ error: "Missing AIRTABLE_PAT or AIRTABLE_BASE_ID env vars" }),
-            };
+            return res.status(500).json({ error: "Missing AIRTABLE_PAT or AIRTABLE_BASE_ID env vars" });
         }
 
         const url = `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${encodeURIComponent(INQUIRY_TABLE)}`;
@@ -39,7 +36,7 @@ exports.handler = async (event) => {
             "Special Instructions": instructions,
         };
 
-        const res = await fetch(url, {
+        const airtableRes = await fetch(url, {
             method: "POST",
             headers: {
                 Authorization: `Bearer ${AIRTABLE_PAT}`,
@@ -48,14 +45,14 @@ exports.handler = async (event) => {
             body: JSON.stringify({ fields }),
         });
 
-        const text = await res.text();
+        const data = await airtableRes.json();
 
-        if (!res.ok) {
-            return { statusCode: res.status, body: text };
+        if (!airtableRes.ok) {
+            return res.status(airtableRes.status).json(data);
         }
 
-        return { statusCode: 200, body: text };
+        return res.status(200).json(data);
     } catch (err) {
-        return { statusCode: 500, body: JSON.stringify({ error: String(err) }) };
+        return res.status(500).json({ error: String(err) });
     }
-};
+}

@@ -1,0 +1,14 @@
+{
+  "name": "politymos-website",
+  "version": "1.0.0",
+  "description": "POLITYMOS LTD Website",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "serve ."
+  },
+  "dependencies": {},
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
