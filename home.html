@@ -5,10 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>POLITYMOS LTD - Professional Laundry Services</title>
-  <link rel="icon" type="image/svg+xml"
-    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23f59e0b'/%3E%3Cpath fill='%23000' d='M10 10h2v2h-2zm10 0h2v2h-2zm-5 4h2v8h-2zm-4 2h2v6H11zm8 0h2v6h-2z'/%3E%3C/svg%3E">
-  <link rel="apple-touch-icon"
-    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23f59e0b'/%3E%3Cpath fill='%23000' d='M10 10h2v2h-2zm10 0h2v2h-2zm-5 4h2v8h-2zm-4 2h2v6H11zm8 0h2v6h-2z'/%3E%3C/svg%3E">
+  <link rel="icon" type="image/png" href="assets/images/fav_icon/gold_logo_fav_icon.PNG">
+  <link rel="apple-touch-icon" href="assets/images/fav_icon/gold_logo_fav_icon.PNG">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>window.dataSdk = window.dataSdk || {
       init: async () => ({ isOk: true }), create: async () => { }); window.elementSdk = window.elementSdk || null;</script>
@@ -279,7 +277,7 @@
             class="nav-link block py-3 px-4 rounded-lg text-gray-600 hover:text-amber-600 hover:bg-amber-50 font-medium">How
             It Works</a>
           <a href="#contact"
-            class="block py-3 px-4 bg-gradient-to-r from-amber-500 to-yellow-600 text-black rounded-xl font-semibold text-center mt-2">Book
+            class="nav-link block py-3 px-4 bg-gradient-to-r from-amber-500 to-yellow-600 text-black rounded-xl font-semibold text-center mt-2">Book
             Pickup</a>
         </div>
       </div>
@@ -289,6 +287,10 @@
       <div class="bubble w-24 h-24 top-40 right-20" style="animation-delay: 1s;"></div>
       <div class="bubble w-16 h-16 bottom-20 left-1/4" style="animation-delay: 2s;"></div>
       <div class="bubble w-20 h-20 bottom-32 right-1/3" style="animation-delay: 0.5s;"></div>
+      <div class="bubble w-12 h-12 top-1/4 left-1/2" style="animation-delay: 1.5s;"></div>
+      <div class="bubble w-28 h-28 bottom-10 right-10" style="animation-delay: 3s;"></div>
+      <div class="bubble w-14 h-14 top-1/3 left-10" style="animation-delay: 2.5s;"></div>
+      <div class="bubble w-22 h-22 bottom-40 left-1/3" style="animation-delay: 4s;"></div>
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div class="grid lg:grid-cols-2 gap-12 items-center">
           <div class="text-white">
@@ -305,6 +307,16 @@
                 class="border-2 border-amber-400 text-amber-400 px-8 py-3 rounded-full font-semibold hover:bg-amber-400/10 transition-colors bg-transparent cursor-pointer font-body">Our
                 Services</button>
             </div>
+          </div>
+          <div class="relative lg:block hidden">
+            <div
+              class="relative z-10 rounded-3xl overflow-hidden shadow-2xl border-4 border-amber-500/20 transform hover:scale-105 transition-transform duration-500">
+              <img src="assets/images/hero icon 1.jpg" alt="Professional Laundry Service"
+                class="w-full h-auto object-cover">
+            </div>
+            <!-- Decorative accent -->
+            <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-amber-500/10 blur-3xl rounded-full"></div>
+            <div class="absolute -top-6 -left-6 w-32 h-32 bg-yellow-500/10 blur-3xl rounded-full"></div>
           </div>
         </div>
       </div>
@@ -780,177 +792,239 @@
     <footer class="bg-black border-t-2 border-amber-500 text-white py-12">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div class="flex items-center mb-4">
-            <img src="assets/images/Gold Logo.png" alt="POLITYMOS LTD" class="h-10 w-auto object-contain">
+          <div>
+            <div class="flex items-center mb-4">
+              <img src="assets/images/Gold Logo.png" alt="POLITYMOS LTD" class="h-10 w-auto object-contain mt-1">
+            </div>
+            <p class="text-gray-400 text-sm">Professional laundry and fabric care services you can trust.</p>
           </div>
-          <p class="text-gray-400 text-sm">Professional laundry and fabric care services you can trust.</p>
+          <div>
+            <h4 class="font-heading text-lg font-bold text-amber-400 mb-6">Services</h4>
+            <ul class="space-y-3 text-gray-400 text-sm">
+              <li><a href="#services" class="hover:text-amber-400 transition-colors">Wash &amp; Fold</a></li>
+              <li><a href="#services" class="hover:text-amber-400 transition-colors">Dry Cleaning</a></li>
+              <li><a href="#services" class="hover:text-amber-400 transition-colors">Stain Removal</a></li>
+              <li><a href="#services" class="hover:text-amber-400 transition-colors">Beddings &amp; Curtains</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-heading text-lg font-bold text-amber-400 mb-6">Quick Links</h4>
+            <ul class="space-y-3 text-gray-400 text-sm">
+              <li><a href="#process" class="hover:text-amber-400 transition-colors">How It Works</a></li>
+              <li><a href="#pricing" class="hover:text-amber-400 transition-colors">Pricing</a></li>
+              <li><a href="#contact" class="hover:text-amber-400 transition-colors">Book Pickup</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-heading text-lg font-bold text-amber-400 mb-6">Contact</h4>
+            <ul class="space-y-3 text-gray-400 text-sm">
+              <li class="flex items-center gap-2"><span class="text-amber-500">📞</span> 08160814084</li>
+              <li class="flex items-center gap-2"><span class="text-amber-500">📧</span> politymos@gmail.com</li>
+              <li class="flex items-center gap-2"><span class="text-amber-500">📍</span> Yaba, Lagos</li>
+            </ul>
+          </div>
+        </div>
+        <div class="mt-10 pt-8 border-t border-amber-500/30 text-center text-gray-400 text-sm">
+          <p>© 2026 POLITYMOS LTD. All rights reserved.</p>
         </div>
       </div>
-      <div class="mt-10 pt-8 border-t border-amber-500/30 text-center text-gray-400 text-sm">
-        <p>© 2026 POLITYMOS LTD. All rights reserved.</p>
-      </div>
-  </div>
-  </footer>
-  </div>
-  <script>
-      // ========== COLLECTING FORM & MODAL DATA (Formspree) ==========
-      // Submissions are sent to Formspree. Create two forms at https://formspree.io (e.g. "Get Custom Quote"
-      // and "Quick Inquiry"), then set FORMSPREE_GET_CUSTOM_QUOTE_URL and FORMSPREE_QUICK_INQUIRY_URL below.
-      // You’ll get email notifications and can view all submissions in the Formspree dashboard.
-      // ==================================================
+    </footer>
+    <script>
+        // ========== COLLECTING FORM & MODAL DATA (Formspree) ==========
+        // Submissions are sent to Formspree. Create two forms at https://formspree.io (e.g. "Get Custom Quote"
+        // and "Quick Inquiry"), then set FORMSPREE_GET_CUSTOM_QUOTE_URL and FORMSPREE_QUICK_INQUIRY_URL below.
+        // You’ll get email notifications and can view all submissions in the Formspree dashboard.
+        // ==================================================
 
-      // Configuration
-      const defaultConfig = {
-        company_name: 'POLITYMOS LTD',
-        tagline: 'Professional Laundry & Fabric Care Services',
-        phone_number: '08160814084',
-        email_address: 'politymos@gmail.com',
-        address: 'No 4, Oyekan Street, Yaba, Lagos',
-        service_area: 'Lagos, Nigeria'
-      };
+        // Configuration
+        const defaultConfig = {
+          company_name: 'POLITYMOS LTD',
+          tagline: 'Professional Laundry & Fabric Care Services',
+          phone_number: '08160814084',
+          email_address: 'politymos@gmail.com',
+          address: 'No 4, Oyekan Street, Yaba, Lagos',
+          service_area: 'Lagos, Nigeria'
+        };
 
-      let config = { ...defaultConfig };
-      let dataSdkReady = false;
+        let config = { ...defaultConfig };
+        let dataSdkReady = false;
 
-      // Data SDK Handler
-      const dataHandler = {
-        onDataChanged(data) { }
-      };
+        // Data SDK Handler
+        const dataHandler = {
+          onDataChanged(data) { }
+        };
 
     // Initialize SDKs
     (async () => {
-        const initResult = await window.dataSdk.init(dataHandler);
-        if (initResult.isOk) dataSdkReady = true;
-      })();
+          const initResult = await window.dataSdk.init(dataHandler);
+          if (initResult.isOk) dataSdkReady = true;
+        })();
 
-    if (window.elementSdk) {
-      window.elementSdk.init({
-        defaultConfig,
-        onConfigChange,
-        mapToCapabilities,
-        mapToEditPanelValues
-      });
-      config = window.elementSdk.config || config;
-    }
+      if (window.elementSdk) {
+        window.elementSdk.init({
+          defaultConfig,
+          onConfigChange,
+          mapToCapabilities,
+          mapToEditPanelValues
+        });
+        config = window.elementSdk.config || config;
+      }
 
-    onConfigChange(config);
+      onConfigChange(config);
 
-    // --- DATA COLLECTION: Airtable Integration ---
-    let selectedPlan = '';
+      // --- DATA COLLECTION: Airtable Integration ---
+      let selectedPlan = '';
 
-    const AIRTABLE_TABLE_NAME = 'Quick Inquiries';
-    const AIRTABLE_QUOTE_TABLE_NAME = 'Quote Requests';
-
-
-    // // Save data and send to Airtable
-    // async function saveToSheet(eventData) {
-    //   if (!dataSdkReady) {
-    //     setTimeout(() => saveToSheet(eventData), 500);
-    //     return;
-    //   }
-
-    //   // 1. Log to internal dataSdk (optional, keeps your original logic)
-    //   const recordData = {
-    //     id: Date.now().toString(),
-    //     event_type: eventData.event_type || '',
-    //     timestamp: new Date().toISOString(),
-    //     user_name: eventData.user_name || '',
-    //     user_phone: eventData.user_phone || '',
-    //     user_email: eventData.user_email || '',
-    //     service_selected: eventData.service_selected || '',
-    //     special_instructions: eventData.special_instructions || '',
-    //     chat_message: eventData.chat_message || '',
-    //     button_clicked: eventData.button_clicked || ''
-    //   };
-    //   await window.dataSdk.create(recordData);
-
-    //   // 2. Send to Airtable
-    //   if (AIRTABLE_PAT === 'YOUR_AIRTABLE_PAT_HERE') {
-    //     console.warn('Airtable credentials not set. Data not sent to Airtable.');
-    //     alert('Please configure Airtable credentials in the code to enable submissions.');
-    //     return;
-    //   }
-
-    //   const url = `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${encodeURIComponent(AIRTABLE_TABLE_NAME)}`;
-
-    //   try {
-    //     const fields = {
-    //       "Your Name": eventData.user_name,
-    //       "Phone Number": eventData.user_phone,
-    //       "Email": eventData.user_email,
-    //       "Service Needed": eventData.service_selected,
-    //       "Special Instructions": eventData.special_instructions
-    //     };
-
-    //     const response = await fetch(url, {
-    //       method: 'POST',
-    //       headers: {
-    //         'Authorization': `Bearer ${AIRTABLE_PAT}`,
-    //         'Content-Type': 'application/json'
-    //       },
-    //       body: JSON.stringify({ fields: fields })
-    //     });
-
-    //     if (!response.ok) {
-    //       const errText = await response.text();
-    //       console.error('Airtable submission failed:', response.status, errText);
-    //       throw new Error(`Airtable Error: ${response.statusText}`);
-    //     }
-
-    //     console.log('Successfully sent to Airtable');
-
-    //   } catch (err) {
-    //     console.error('Airtable request failed:', err);
-    //     // You might want to show a user-facing error here if critical
-    //   }
-    // }
+      const AIRTABLE_TABLE_NAME = 'Quick Inquiries';
+      const AIRTABLE_QUOTE_TABLE_NAME = 'Quote Requests';
 
 
-    async function saveToSheet(eventData) {
-      console.log("✅ saveToSheet called", eventData);
+      // // Save data and send to Airtable
+      // async function saveToSheet(eventData) {
+      //   if (!dataSdkReady) {
+      //     setTimeout(() => saveToSheet(eventData), 500);
+      //     return;
+      //   }
 
-      // 1) Try dataSdk, but DO NOT block Airtable if it’s not ready
-      if (dataSdkReady && window.dataSdk?.create) {
-        try {
-          const recordData = {
-            id: Date.now().toString(),
-            event_type: eventData.event_type || '',
-            timestamp: new Date().toISOString(),
-            user_name: eventData.user_name || '',
-            user_phone: eventData.user_phone || '',
-            user_email: eventData.user_email || '',
-            service_selected: eventData.service_selected || '',
-            special_instructions: eventData.special_instructions || '',
-            chat_message: eventData.chat_message || '',
-            button_clicked: eventData.button_clicked || ''
-          };
-          console.log("✅ Sending to dataSdk.create", recordData);
-          await window.dataSdk.create(recordData);
-        } catch (e) {
-          console.warn("⚠️ dataSdk.create failed, continuing to Airtable anyway:", e);
+      //   // 1. Log to internal dataSdk (optional, keeps your original logic)
+      //   const recordData = {
+      //     id: Date.now().toString(),
+      //     event_type: eventData.event_type || '',
+      //     timestamp: new Date().toISOString(),
+      //     user_name: eventData.user_name || '',
+      //     user_phone: eventData.user_phone || '',
+      //     user_email: eventData.user_email || '',
+      //     service_selected: eventData.service_selected || '',
+      //     special_instructions: eventData.special_instructions || '',
+      //     chat_message: eventData.chat_message || '',
+      //     button_clicked: eventData.button_clicked || ''
+      //   };
+      //   await window.dataSdk.create(recordData);
+
+      //   // 2. Send to Airtable
+      //   if (AIRTABLE_PAT === 'YOUR_AIRTABLE_PAT_HERE') {
+      //     console.warn('Airtable credentials not set. Data not sent to Airtable.');
+      //     alert('Please configure Airtable credentials in the code to enable submissions.');
+      //     return;
+      //   }
+
+      //   const url = `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${encodeURIComponent(AIRTABLE_TABLE_NAME)}`;
+
+      //   try {
+      //     const fields = {
+      //       "Your Name": eventData.user_name,
+      //       "Phone Number": eventData.user_phone,
+      //       "Email": eventData.user_email,
+      //       "Service Needed": eventData.service_selected,
+      //       "Special Instructions": eventData.special_instructions
+      //     };
+
+      //     const response = await fetch(url, {
+      //       method: 'POST',
+      //       headers: {
+      //         'Authorization': `Bearer ${AIRTABLE_PAT}`,
+      //         'Content-Type': 'application/json'
+      //       },
+      //       body: JSON.stringify({ fields: fields })
+      //     });
+
+      //     if (!response.ok) {
+      //       const errText = await response.text();
+      //       console.error('Airtable submission failed:', response.status, errText);
+      //       throw new Error(`Airtable Error: ${response.statusText}`);
+      //     }
+
+      //     console.log('Successfully sent to Airtable');
+
+      //   } catch (err) {
+      //     console.error('Airtable request failed:', err);
+      //     // You might want to show a user-facing error here if critical
+      //   }
+      // }
+
+
+      async function saveToSheet(eventData) {
+        console.log("✅ saveToSheet called", eventData);
+
+        // 1) Try dataSdk, but DO NOT block Airtable if it’s not ready
+        if (dataSdkReady && window.dataSdk?.create) {
+          try {
+            const recordData = {
+              id: Date.now().toString(),
+              event_type: eventData.event_type || '',
+              timestamp: new Date().toISOString(),
+              user_name: eventData.user_name || '',
+              user_phone: eventData.user_phone || '',
+              user_email: eventData.user_email || '',
+              service_selected: eventData.service_selected || '',
+              special_instructions: eventData.special_instructions || '',
+              chat_message: eventData.chat_message || '',
+              button_clicked: eventData.button_clicked || ''
+            };
+            console.log("✅ Sending to dataSdk.create", recordData);
+            await window.dataSdk.create(recordData);
+          } catch (e) {
+            console.warn("⚠️ dataSdk.create failed, continuing to Airtable anyway:", e);
+          }
+        } else {
+          console.warn("⚠️ dataSdk not ready — sending to Airtable anyway");
         }
-      } else {
-        console.warn("⚠️ dataSdk not ready — sending to Airtable anyway");
+
+        // 2) Send to Airtable (always)
+        if (!AIRTABLE_PAT || AIRTABLE_PAT === 'YOUR_AIRTABLE_PAT_HERE') {
+          console.warn('Airtable credentials not set. Data not sent to Airtable.');
+          return;
+        }
+
+        const url = `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${encodeURIComponent(AIRTABLE_TABLE_NAME)}`;
+
+        try {
+          const fields = {
+            "Your Name": eventData.user_name,
+            "Phone Number": eventData.user_phone,
+            "Email": eventData.user_email,
+            "Service Needed": eventData.service_selected,
+            "Special Instructions": eventData.special_instructions
+          };
+
+          console.log("✅ About to send to Airtable", { url, fields });
+
+          const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+              'Authorization': `Bearer ${AIRTABLE_PAT}`,
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ fields })
+          });
+
+          console.log("✅ Airtable response status:", response.status);
+
+          if (!response.ok) {
+            const errText = await response.text();
+            console.error('❌ Airtable submission failed:', response.status, errText);
+            return;
+          }
+
+          console.log('✅ Successfully sent to Airtable');
+
+        } catch (err) {
+          console.error('❌ Airtable request failed:', err);
+        }
       }
 
-      // 2) Send to Airtable (always)
-      if (!AIRTABLE_PAT || AIRTABLE_PAT === 'YOUR_AIRTABLE_PAT_HERE') {
-        console.warn('Airtable credentials not set. Data not sent to Airtable.');
-        return;
-      }
 
-      const url = `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${encodeURIComponent(AIRTABLE_TABLE_NAME)}`;
+      // Quotes Inquiry Code
 
-      try {
+      async function saveQuoteToAirtable({ name, phone, email, plan }) {
+        const url = `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${encodeURIComponent(AIRTABLE_QUOTE_TABLE_NAME)}`;
+
         const fields = {
-          "Your Name": eventData.user_name,
-          "Phone Number": eventData.user_phone,
-          "Email": eventData.user_email,
-          "Service Needed": eventData.service_selected,
-          "Special Instructions": eventData.special_instructions
+          "Your Name": name,
+          "Phone Number": phone,
+          "Email Address": email,
+          "Plan": plan || "Not selected"
         };
-
-        console.log("✅ About to send to Airtable", { url, fields });
 
         const response = await fetch(url, {
           method: 'POST',
@@ -961,213 +1035,176 @@
           body: JSON.stringify({ fields })
         });
 
-        console.log("✅ Airtable response status:", response.status);
-
         if (!response.ok) {
           const errText = await response.text();
-          console.error('❌ Airtable submission failed:', response.status, errText);
-          return;
+          console.error('❌ Quote Airtable submission failed:', response.status, errText);
+          return false;
         }
 
-        console.log('✅ Successfully sent to Airtable');
-
-      } catch (err) {
-        console.error('❌ Airtable request failed:', err);
-      }
-    }
-
-
-    // Quotes Inquiry Code
-
-    async function saveQuoteToAirtable({ name, phone, email, plan }) {
-      const url = `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${encodeURIComponent(AIRTABLE_QUOTE_TABLE_NAME)}`;
-
-      const fields = {
-        "Your Name": name,
-        "Phone Number": phone,
-        "Email Address": email,
-        "Plan": plan || "Not selected"
-      };
-
-      const response = await fetch(url, {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${AIRTABLE_PAT}`,
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ fields })
-      });
-
-      if (!response.ok) {
-        const errText = await response.text();
-        console.error('❌ Quote Airtable submission failed:', response.status, errText);
-        return false;
+        console.log("✅ Quote request saved to Airtable");
+        return true;
       }
 
-      console.log("✅ Quote request saved to Airtable");
-      return true;
-    }
 
+      // Update UI with config changes
+      function onConfigChange(currentConfig) {
+        const companyName = currentConfig.company_name || defaultConfig.company_name;
+        const phone = currentConfig.phone_number || defaultConfig.phone_number;
 
-    // Update UI with config changes
-    function onConfigChange(currentConfig) {
-      const companyName = currentConfig.company_name || defaultConfig.company_name;
-      const phone = currentConfig.phone_number || defaultConfig.phone_number;
+        const elements = {
+          'nav-company-name': companyName.split(' ')[0],
+          'hero-company-name': companyName,
+          'footer-company-name': companyName,
+          'contact-bar-phone': phone,
+          'contact-phone': phone
+        };
 
-      const elements = {
-        'nav-company-name': companyName.split(' ')[0],
-        'hero-company-name': companyName,
-        'footer-company-name': companyName,
-        'contact-bar-phone': phone,
-        'contact-phone': phone
-      };
-
-      Object.entries(elements).forEach(([id, text]) => {
-        const el = document.getElementById(id);
-        if (el) el.textContent = text;
-      });
-    }
-
-    // Capabilities for Element SDK
-    function mapToCapabilities(currentConfig) {
-      return { recolorables: [], borderables: [], fontEditable: undefined, fontSizeable: undefined };
-    }
-
-    // Edit panel values for Element SDK
-    function mapToEditPanelValues(currentConfig) {
-      return new Map([
-        ['company_name', currentConfig.company_name || defaultConfig.company_name],
-        ['phone_number', currentConfig.phone_number || defaultConfig.phone_number]
-      ]);
-    }
-
-    // Modal handling
-    function openSubscriptionModal() {
-      document.getElementById('subscription-modal').classList.remove('hidden');
-    }
-
-    function closeSubscriptionModal() {
-      document.getElementById('subscription-modal').classList.add('hidden');
-    }
-
-    function selectPlan(planType) {
-      selectedPlan = planType;
-      document.getElementById('weekly-plan').checked = (planType === 'weekly');
-      document.getElementById('monthly-plan').checked = (planType === 'monthly');
-      document.querySelectorAll('.plan-card').forEach(el => {
-        el.classList.toggle('border-amber-500', el.id === 'plan-' + planType);
-        el.classList.toggle('bg-amber-50', el.id === 'plan-' + planType);
-      });
-    }
-
-    const subForm = document.getElementById('subscription-form');
-    if (subForm) {
-      subForm.addEventListener('submit', function (e) {
-        e.preventDefault();
-        const name = document.getElementById('sub-name').value;
-        const phone = document.getElementById('sub-phone').value;
-        const email = document.getElementById('sub-email').value;
-        await saveQuoteToAirtable({
-          name,
-          phone,
-          email,
-          plan: selectedPlan || ''
+        Object.entries(elements).forEach(([id, text]) => {
+          const el = document.getElementById(id);
+          if (el) el.textContent = text;
         });
-
-        subForm.style.display = 'none';
-        document.getElementById('subscription-success').classList.remove('hidden');
-        setTimeout(() => {
-          closeSubscriptionModal();
-          subForm.reset();
-          subForm.style.display = 'block';
-          document.getElementById('subscription-success').classList.add('hidden');
-        }, 3000);
-      });
-    }
-
-    document.getElementById('close-modal')?.addEventListener('click', closeSubscriptionModal);
-    document.getElementById('subscription-modal')?.addEventListener('click', (e) => {
-      if (e.target.id === 'subscription-modal') closeSubscriptionModal();
-    });
-
-    // Mobile menu toggle
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    if (mobileMenuBtn && mobileMenu) {
-      mobileMenuBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-      });
-      mobileMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          mobileMenu.classList.add('hidden');
-        });
-      });
-    }
-
-    // Inquiry form submission
-    // const inquiryForm = document.getElementById('inquiry-form');
-    // if (inquiryForm) {
-    //   inquiryForm.addEventListener('submit', (e) => {
-    //     e.preventDefault();
-    //     console.log("✅ Inquiry submit handler fired");
-    //     const formData = new FormData(inquiryForm);
-    //     const data = Object.fromEntries(formData.entries());
-    //     saveToSheet({
-    //       event_type: 'form_submission',
-    //       user_name: data.name,
-    //       user_phone: data.phone,
-    //       user_email: data.email || '',
-    //       service_selected: data.service,
-    //       special_instructions: data['special-instructions'] || ''
-    //     });
-    //     inquiryForm.style.display = 'none';
-    //     document.getElementById('form-success').classList.remove('hidden');
-    //     setTimeout(() => {
-    //       inquiryForm.reset();
-    //       inquiryForm.style.display = 'block';
-    //       document.getElementById('form-success').classList.add('hidden');
-    //     }, 5000);
-    //   });
-    // }
-
-    // Smooth navigation helper (also on window for any inline use)
-    function scrollToSection(sectionId) {
-      if (!sectionId || typeof sectionId !== 'string') return;
-      const target = document.querySelector(sectionId);
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
-    }
-    window.scrollToSection = scrollToSection;
-    window.openSubscriptionModal = openSubscriptionModal;
 
-    // Button click handlers (ensure all buttons work)
-    document.getElementById('hero-book-pickup')?.addEventListener('click', function () { scrollToSection('#contact'); });
-    document.getElementById('hero-our-services')?.addEventListener('click', function () { scrollToSection('#services'); });
-    document.getElementById('nav-book-pickup')?.addEventListener('click', function () { scrollToSection('#contact'); });
-    document.getElementById('btn-get-quote')?.addEventListener('click', function () { openSubscriptionModal(); });
-    document.getElementById('nav-logo')?.addEventListener('click', function (e) {
-      e.preventDefault();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+      // Capabilities for Element SDK
+      function mapToCapabilities(currentConfig) {
+        return { recolorables: [], borderables: [], fontEditable: undefined, fontSizeable: undefined };
+      }
 
-    // Smooth navigation for anchor links (nav and mobile menu)
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        const href = this.getAttribute('href');
-        if (href === '#') {
+      // Edit panel values for Element SDK
+      function mapToEditPanelValues(currentConfig) {
+        return new Map([
+          ['company_name', currentConfig.company_name || defaultConfig.company_name],
+          ['phone_number', currentConfig.phone_number || defaultConfig.phone_number]
+        ]);
+      }
+
+      // Modal handling
+      function openSubscriptionModal() {
+        document.getElementById('subscription-modal').classList.remove('hidden');
+      }
+
+      function closeSubscriptionModal() {
+        document.getElementById('subscription-modal').classList.add('hidden');
+      }
+
+      function selectPlan(planType) {
+        selectedPlan = planType;
+        document.getElementById('weekly-plan').checked = (planType === 'weekly');
+        document.getElementById('monthly-plan').checked = (planType === 'monthly');
+        document.querySelectorAll('.plan-card').forEach(el => {
+          el.classList.toggle('border-amber-500', el.id === 'plan-' + planType);
+          el.classList.toggle('bg-amber-50', el.id === 'plan-' + planType);
+        });
+      }
+
+      const subForm = document.getElementById('subscription-form');
+      if (subForm) {
+        subForm.addEventListener('submit', async function (e) {
           e.preventDefault();
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-          return;
-        }
-        e.preventDefault();
-        scrollToSection(href);
-      });
-    });
+          const name = document.getElementById('sub-name').value;
+          const phone = document.getElementById('sub-phone').value;
+          const email = document.getElementById('sub-email').value;
+          await saveQuoteToAirtable({
+            name,
+            phone,
+            email,
+            plan: selectedPlan || ''
+          });
 
-  </script>
-  <!-- <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'9c845ffb43745d00',t:'MTc3MDE0NzM2My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script> -->
-  <script src="main.js" defer></script>
+          subForm.style.display = 'none';
+          document.getElementById('subscription-success').classList.remove('hidden');
+          setTimeout(() => {
+            closeSubscriptionModal();
+            subForm.reset();
+            subForm.style.display = 'block';
+            document.getElementById('subscription-success').classList.add('hidden');
+          }, 3000);
+        });
+      }
+
+      document.getElementById('close-modal')?.addEventListener('click', closeSubscriptionModal);
+      document.getElementById('subscription-modal')?.addEventListener('click', (e) => {
+        if (e.target.id === 'subscription-modal') closeSubscriptionModal();
+      });
+
+      // Mobile menu toggle
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+        });
+        mobileMenu.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+          });
+        });
+      }
+
+      // Inquiry form submission
+      // const inquiryForm = document.getElementById('inquiry-form');
+      // if (inquiryForm) {
+      //   inquiryForm.addEventListener('submit', (e) => {
+      //     e.preventDefault();
+      //     console.log("✅ Inquiry submit handler fired");
+      //     const formData = new FormData(inquiryForm);
+      //     const data = Object.fromEntries(formData.entries());
+      //     saveToSheet({
+      //       event_type: 'form_submission',
+      //       user_name: data.name,
+      //       user_phone: data.phone,
+      //       user_email: data.email || '',
+      //       service_selected: data.service,
+      //       special_instructions: data['special-instructions'] || ''
+      //     });
+      //     inquiryForm.style.display = 'none';
+      //     document.getElementById('form-success').classList.remove('hidden');
+      //     setTimeout(() => {
+      //       inquiryForm.reset();
+      //       inquiryForm.style.display = 'block';
+      //       document.getElementById('form-success').classList.add('hidden');
+      //     }, 5000);
+      //   });
+      // }
+
+      // Smooth navigation helper (also on window for any inline use)
+      function scrollToSection(sectionId) {
+        if (!sectionId || typeof sectionId !== 'string') return;
+        const target = document.querySelector(sectionId);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+      window.scrollToSection = scrollToSection;
+      window.openSubscriptionModal = openSubscriptionModal;
+
+      // Button click handlers (ensure all buttons work)
+      document.getElementById('hero-book-pickup')?.addEventListener('click', function () { scrollToSection('#contact'); });
+      document.getElementById('hero-our-services')?.addEventListener('click', function () { scrollToSection('#services'); });
+      document.getElementById('nav-book-pickup')?.addEventListener('click', function () { scrollToSection('#contact'); });
+      document.getElementById('btn-get-quote')?.addEventListener('click', function () { openSubscriptionModal(); });
+      document.getElementById('nav-logo')?.addEventListener('click', function (e) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      // Smooth navigation for anchor links (nav and mobile menu)
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          const href = this.getAttribute('href');
+          if (href === '#') {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            return;
+          }
+          e.preventDefault();
+          scrollToSection(href);
+        });
+      });
+
+    </script>
+    <!-- <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'9c845ffb43745d00',t:'MTc3MDE0NzM2My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script> -->
+    <script src="main.js" defer></script>
 </body>
 
 </html>
