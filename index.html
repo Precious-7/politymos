@@ -2,6 +2,15 @@
 <html lang="en" class="h-full">
 
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17962094946"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'AW-17962094946');
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>POLITYMOS LTD - Professional Laundry Services</title>
@@ -9,7 +18,8 @@
   <link rel="apple-touch-icon" href="assets/images/fav_icon/gold_logo_fav_icon.PNG">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>window.dataSdk = window.dataSdk || {
-      init: async () => ({ isOk: true }), create: async () => { }); window.elementSdk = window.elementSdk || null;</script>
+      init: async () => ({ isOk: true }), create: async () => { }
+    }; window.elementSdk = window.elementSdk || null;</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -830,35 +840,35 @@
       </div>
     </footer>
     <script>
-        // ========== COLLECTING FORM & MODAL DATA (Formspree) ==========
-        // Submissions are sent to Formspree. Create two forms at https://formspree.io (e.g. "Get Custom Quote"
-        // and "Quick Inquiry"), then set FORMSPREE_GET_CUSTOM_QUOTE_URL and FORMSPREE_QUICK_INQUIRY_URL below.
-        // You’ll get email notifications and can view all submissions in the Formspree dashboard.
-        // ==================================================
+      // ========== COLLECTING FORM & MODAL DATA (Formspree) ==========
+      // Submissions are sent to Formspree. Create two forms at https://formspree.io (e.g. "Get Custom Quote"
+      // and "Quick Inquiry"), then set FORMSPREE_GET_CUSTOM_QUOTE_URL and FORMSPREE_QUICK_INQUIRY_URL below.
+      // You’ll get email notifications and can view all submissions in the Formspree dashboard.
+      // ==================================================
 
-        // Configuration
-        const defaultConfig = {
-          company_name: 'POLITYMOS LTD',
-          tagline: 'Professional Laundry & Fabric Care Services',
-          phone_number: '08160814084',
-          email_address: 'politymos@gmail.com',
-          address: 'No 4, Oyekan Street, Yaba, Lagos',
-          service_area: 'Lagos, Nigeria'
-        };
+      // Configuration
+      const defaultConfig = {
+        company_name: 'POLITYMOS LTD',
+        tagline: 'Professional Laundry & Fabric Care Services',
+        phone_number: '08160814084',
+        email_address: 'politymos@gmail.com',
+        address: 'No 4, Oyekan Street, Yaba, Lagos',
+        service_area: 'Lagos, Nigeria'
+      };
 
-        let config = { ...defaultConfig };
-        let dataSdkReady = false;
+      let config = { ...defaultConfig };
+      let dataSdkReady = false;
 
-        // Data SDK Handler
-        const dataHandler = {
-          onDataChanged(data) { }
-        };
+      // Data SDK Handler
+      const dataHandler = {
+        onDataChanged(data) { }
+      };
 
-    // Initialize SDKs
-    (async () => {
-          const initResult = await window.dataSdk.init(dataHandler);
-          if (initResult.isOk) dataSdkReady = true;
-        })();
+      // Initialize SDKs
+      (async () => {
+        const initResult = await window.dataSdk.init(dataHandler);
+        if (initResult.isOk) dataSdkReady = true;
+      })();
 
       if (window.elementSdk) {
         window.elementSdk.init({
