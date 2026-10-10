@@ -22,6 +22,95 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("nav-book-pickup")
         ?.addEventListener("click", () => scrollToSection("#contact"));
 
+    // ----- Hero Carousel -----
+    const slides = document.querySelectorAll(".hero-slide");
+    const dots = document.querySelectorAll("#carousel-dots .dot");
+    const prevBtn = document.getElementById("carousel-prev");
+    const nextBtn = document.getElementById("carousel-next");
+    const track = document.getElementById("hero-carousel-track");
+
+    if (slides.length > 0) {
+        let currentIndex = 0;
+        let timer = null;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                const isActive = i === index;
+                slide.classList.toggle("opacity-100", isActive);
+                slide.classList.toggle("z-10", isActive);
+                slide.classList.toggle("opacity-0", !isActive);
+                slide.classList.toggle("z-0", !isActive);
+            });
+
+            dots.forEach((dot, i) => {
+                const isActive = i === index;
+                if (isActive) {
+                    dot.className = "dot active w-6 h-2.5 rounded-full bg-amber-400 transition-all duration-300 cursor-pointer";
+                } else {
+                    dot.className = "dot w-2.5 h-2.5 rounded-full bg-white/50 hover:bg-white transition-all duration-300 cursor-pointer";
+                }
+            });
+
+            currentIndex = index;
+        }
+
+        function nextSlide() {
+            showSlide((currentIndex + 1) % slides.length);
+        }
+
+        function prevSlide() {
+            showSlide((currentIndex - 1 + slides.length) % slides.length);
+        }
+
+        function startAutoPlay() {
+            stopAutoPlay();
+            timer = setInterval(nextSlide, 4500);
+        }
+
+        function stopAutoPlay() {
+            if (timer) clearInterval(timer);
+        }
+
+        nextBtn?.addEventListener("click", () => {
+            nextSlide();
+            startAutoPlay();
+        });
+
+        prevBtn?.addEventListener("click", () => {
+            prevSlide();
+            startAutoPlay();
+        });
+
+        dots.forEach((dot, i) => {
+            dot.addEventListener("click", () => {
+                showSlide(i);
+                startAutoPlay();
+            });
+        });
+
+        track?.addEventListener("mouseenter", stopAutoPlay);
+        track?.addEventListener("mouseleave", startAutoPlay);
+
+        // Touch swipe support for mobile
+        let startX = 0;
+        track?.addEventListener("touchstart", (e) => {
+            startX = e.touches[0].clientX;
+            stopAutoPlay();
+        }, { passive: true });
+
+        track?.addEventListener("touchend", (e) => {
+            const endX = e.changedTouches[0].clientX;
+            const diff = startX - endX;
+            if (Math.abs(diff) > 40) {
+                if (diff > 0) nextSlide();
+                else prevSlide();
+            }
+            startAutoPlay();
+        }, { passive: true });
+
+        startAutoPlay();
+    }
+
     // ----- Modal -----
     const modal = document.getElementById("subscription-modal");
     const closeBtn = document.getElementById("close-modal");
@@ -91,6 +180,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (!res.ok) throw new Error("Inquiry failed");
 
+            // Trigger Google Ads conversion event
+            if (typeof gtag === 'function') {
+                gtag('event', 'conversion', { 'send_to': 'AW-17962094946/RMpFCPnEjYUcEOKi__RC' });
+            }
+
             inquiryForm.style.display = "none";
             document.getElementById("form-success")?.classList.remove("hidden");
 
@@ -137,6 +231,11 @@ document.addEventListener("DOMContentLoaded", () => {
             });
 
             if (!res.ok) throw new Error("Quote failed");
+
+            // Trigger Google Ads conversion event
+            if (typeof gtag === 'function') {
+                gtag('event', 'conversion', { 'send_to': 'AW-17962094946/RMpFCPnEjYUcEOKi__RC' });
+            }
 
             quoteForm.style.display = "none";
             document.getElementById("subscription-success")?.classList.remove("hidden");

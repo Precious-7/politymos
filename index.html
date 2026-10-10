@@ -10,6 +10,20 @@
     gtag('js', new Date());
 
     gtag('config', 'AW-17962094946');
+
+    // Event snippet for Submit lead form (1) conversion page
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof (url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'conversion', {
+        'send_to': 'AW-17962094946/RMpFCPnEjYUcEOKi__RC',
+        'event_callback': callback
+      });
+      return false;
+    }
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -318,15 +332,84 @@
                 Services</button>
             </div>
           </div>
-          <div class="relative lg:block hidden">
-            <div
-              class="relative z-10 rounded-3xl overflow-hidden shadow-2xl border-4 border-amber-500/20 transform hover:scale-105 transition-transform duration-500">
-              <img src="assets/images/new%20hero%20image.jpg" alt="Professional Laundry Service"
-                class="w-full h-auto object-cover">
+          <div class="relative w-full max-w-lg mx-auto lg:max-w-none mt-8 lg:mt-0">
+            <div class="relative z-10 rounded-3xl overflow-hidden shadow-2xl border-4 border-amber-500/30 group">
+              <!-- Carousel Track Container -->
+              <div id="hero-carousel-track" class="relative w-full h-[360px] sm:h-[440px] lg:h-[480px]">
+                <!-- Slide 1 -->
+                <div class="hero-slide active absolute inset-0 transition-opacity duration-700 ease-in-out opacity-100 z-10">
+                  <img src="assets/images/hero-fabrics.jpg" alt="Politymos Fabric Care" class="w-full h-full object-cover">
+                  <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-4 sm:p-6">
+                    <span class="text-xs sm:text-sm font-semibold text-amber-400 uppercase tracking-wider">Fabric Care</span>
+                    <p class="text-white text-sm sm:text-base font-medium">Luxury Fabrics &amp; Lace Care</p>
+                  </div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="hero-slide absolute inset-0 transition-opacity duration-700 ease-in-out opacity-0 z-0">
+                  <img src="assets/images/hero-carousel-2.jpg" alt="Hygienic Packaging" class="w-full h-full object-cover">
+                  <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-4 sm:p-6">
+                    <span class="text-xs sm:text-sm font-semibold text-amber-400 uppercase tracking-wider">Hygienic Packaging</span>
+                    <p class="text-white text-sm sm:text-base font-medium">Sealed &amp; Protected Ready for Delivery</p>
+                  </div>
+                </div>
+                <!-- Slide 3 -->
+                <div class="hero-slide absolute inset-0 transition-opacity duration-700 ease-in-out opacity-0 z-0">
+                  <img src="assets/images/hero-carousel-3.jpg" alt="Ankara & Pattern Care" class="w-full h-full object-cover">
+                  <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-4 sm:p-6">
+                    <span class="text-xs sm:text-sm font-semibold text-amber-400 uppercase tracking-wider">Pattern &amp; Print Care</span>
+                    <p class="text-white text-sm sm:text-base font-medium">Preserving Vibrant Colors &amp; Native Prints</p>
+                  </div>
+                </div>
+                <!-- Slide 4 -->
+                <div class="hero-slide absolute inset-0 transition-opacity duration-700 ease-in-out opacity-0 z-0">
+                  <img src="assets/images/hero-carousel-4.jpg" alt="Tailored Garments" class="w-full h-full object-cover">
+                  <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-4 sm:p-6">
+                    <span class="text-xs sm:text-sm font-semibold text-amber-400 uppercase tracking-wider">Professional Pressing</span>
+                    <p class="text-white text-sm sm:text-base font-medium">Expert Finishing for Suits &amp; Custom Wear</p>
+                  </div>
+                </div>
+                <!-- Slide 5 -->
+                <div class="hero-slide absolute inset-0 transition-opacity duration-700 ease-in-out opacity-0 z-0">
+                  <img src="assets/images/hero-carousel-5.jpg" alt="Premium Lace & Embroidery" class="w-full h-full object-cover">
+                  <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-4 sm:p-6">
+                    <span class="text-xs sm:text-sm font-semibold text-amber-400 uppercase tracking-wider">Delicate Treatment</span>
+                    <p class="text-white text-sm sm:text-base font-medium">Gentle Care for Premium Lace Collections</p>
+                  </div>
+                </div>
+                <!-- Slide 6 -->
+                <div class="hero-slide absolute inset-0 transition-opacity duration-700 ease-in-out opacity-0 z-0">
+                  <img src="assets/images/hero-carousel-6.jpg" alt="Textile Refresh" class="w-full h-full object-cover">
+                  <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-4 sm:p-6">
+                    <span class="text-xs sm:text-sm font-semibold text-amber-400 uppercase tracking-wider">Premium Finish</span>
+                    <p class="text-white text-sm sm:text-base font-medium">Fresh, Pristine &amp; Soft Textiles</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Navigation Controls -->
+              <button type="button" id="carousel-prev" aria-label="Previous slide"
+                class="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/50 hover:bg-black/80 backdrop-blur-md text-amber-400 flex items-center justify-center transition-all duration-200 border border-amber-500/30 cursor-pointer hover:scale-110">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" /></svg>
+              </button>
+              <button type="button" id="carousel-next" aria-label="Next slide"
+                class="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/50 hover:bg-black/80 backdrop-blur-md text-amber-400 flex items-center justify-center transition-all duration-200 border border-amber-500/30 cursor-pointer hover:scale-110">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" /></svg>
+              </button>
+
+              <!-- Indicators / Dots -->
+              <div id="carousel-dots" class="absolute bottom-4 right-4 z-20 flex items-center gap-1.5">
+                <button type="button" class="dot active w-6 h-2.5 rounded-full bg-amber-400 transition-all duration-300 cursor-pointer" aria-label="Slide 1"></button>
+                <button type="button" class="dot w-2.5 h-2.5 rounded-full bg-white/50 hover:bg-white transition-all duration-300 cursor-pointer" aria-label="Slide 2"></button>
+                <button type="button" class="dot w-2.5 h-2.5 rounded-full bg-white/50 hover:bg-white transition-all duration-300 cursor-pointer" aria-label="Slide 3"></button>
+                <button type="button" class="dot w-2.5 h-2.5 rounded-full bg-white/50 hover:bg-white transition-all duration-300 cursor-pointer" aria-label="Slide 4"></button>
+                <button type="button" class="dot w-2.5 h-2.5 rounded-full bg-white/50 hover:bg-white transition-all duration-300 cursor-pointer" aria-label="Slide 5"></button>
+                <button type="button" class="dot w-2.5 h-2.5 rounded-full bg-white/50 hover:bg-white transition-all duration-300 cursor-pointer" aria-label="Slide 6"></button>
+              </div>
             </div>
-            <!-- Decorative accent -->
-            <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-amber-500/10 blur-3xl rounded-full"></div>
-            <div class="absolute -top-6 -left-6 w-32 h-32 bg-yellow-500/10 blur-3xl rounded-full"></div>
+
+            <!-- Decorative accents -->
+            <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-amber-500/20 blur-3xl rounded-full pointer-events-none"></div>
+            <div class="absolute -top-6 -left-6 w-32 h-32 bg-yellow-500/20 blur-3xl rounded-full pointer-events-none"></div>
           </div>
         </div>
       </div>
@@ -401,6 +484,64 @@
             </div>
             <h3 class="font-heading text-xl font-bold text-gray-800 mb-3">Corporate / Hotel Laundry</h3>
             <p class="text-gray-600">Reliable bulk laundry solutions for offices, hotels, short-lets, and hostels.</p>
+          </div>
+          <div class="service-card">
+            <div class="flex items-center justify-between mb-4">
+              <div
+                class="w-16 h-16 bg-gradient-to-br from-amber-400 to-yellow-500 rounded-xl flex items-center justify-center">
+                <span class="text-3xl">🛋️</span>
+              </div>
+              <span class="bg-amber-100 text-amber-900 border border-amber-300 text-xs font-bold px-3 py-1 rounded-full">Custom Quote</span>
+            </div>
+            <h3 class="font-heading text-xl font-bold text-gray-800 mb-2">Upholstery Cleaning</h3>
+            <p class="text-gray-600 mb-4">Deep cleaning, odor removal, and stain extraction for sofas, armchairs, couches, and padded seating.</p>
+            <a href="#contact" class="inline-flex items-center gap-2 text-sm font-bold text-amber-600 hover:text-amber-700 transition-colors">
+              Message for Quote &rarr;
+            </a>
+          </div>
+          <div class="service-card">
+            <div class="flex items-center justify-between mb-4">
+              <div
+                class="w-16 h-16 bg-gradient-to-br from-amber-400 to-yellow-500 rounded-xl flex items-center justify-center">
+                <span class="text-3xl">🧹</span>
+              </div>
+              <span class="bg-amber-100 text-amber-900 border border-amber-300 text-xs font-bold px-3 py-1 rounded-full">Custom Quote</span>
+            </div>
+            <h3 class="font-heading text-xl font-bold text-gray-800 mb-2">Rug &amp; Carpet Cleaning</h3>
+            <p class="text-gray-600 mb-4">Specialized deep washing and extraction for area rugs, carpets, mats, and floor coverings.</p>
+            <a href="#contact" class="inline-flex items-center gap-2 text-sm font-bold text-amber-600 hover:text-amber-700 transition-colors">
+              Message for Quote &rarr;
+            </a>
+          </div>
+        </div>
+
+        <!-- Upholstery & Furniture Showcase -->
+        <div class="mt-16 bg-gradient-to-r from-amber-500/10 via-amber-400/5 to-yellow-500/10 rounded-3xl p-8 lg:p-12 border border-amber-500/20">
+          <div class="grid lg:grid-cols-2 gap-8 items-center">
+            <div>
+              <span class="bg-amber-500 text-black text-xs font-bold tracking-wider uppercase px-3 py-1 rounded-full">Specialty Care</span>
+              <h3 class="font-heading text-2xl sm:text-3xl font-bold text-gray-900 mt-4 mb-4">Upholstery &amp; Sofa Deep Cleaning</h3>
+              <p class="text-gray-700 mb-6">Give your furniture a brand-new look and feel! We provide specialized deep extraction cleaning for armchairs, sectional sofas, velvet couches, and area rugs. Contact us today for a fast custom price quote.</p>
+              <div class="flex flex-wrap gap-4">
+                <a href="https://wa.me/+2348160814084?text=Hi%2C%20I%20would%20like%20to%20get%20a%20custom%20quote%20for%20Upholstery%20%2F%20Rug%20cleaning" target="_blank" rel="noopener noreferrer" class="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-6 py-3 rounded-full shadow-md transition-colors inline-flex items-center gap-2">
+                  <span>💬</span> WhatsApp for Custom Quote
+                </a>
+                <a href="#contact" class="bg-black hover:bg-gray-800 text-amber-400 font-semibold px-6 py-3 rounded-full transition-colors inline-flex items-center gap-2">
+                  <span>✉️</span> Send Message / Inquiry
+                </a>
+              </div>
+            </div>
+            <div class="grid grid-cols-3 gap-3 sm:gap-4">
+              <div class="rounded-2xl overflow-hidden shadow-lg border-2 border-white transform hover:scale-105 transition-transform duration-300">
+                <img src="assets/images/upholstery-1.jpg" alt="Armchair Upholstery Cleaning" class="w-full h-48 sm:h-56 object-cover">
+              </div>
+              <div class="rounded-2xl overflow-hidden shadow-lg border-2 border-white transform hover:scale-105 transition-transform duration-300">
+                <img src="assets/images/upholstery-2.jpg" alt="Sofa Deep Cleaning" class="w-full h-48 sm:h-56 object-cover">
+              </div>
+              <div class="rounded-2xl overflow-hidden shadow-lg border-2 border-white transform hover:scale-105 transition-transform duration-300">
+                <img src="assets/images/upholstery-3.jpg" alt="Fabric Couch Care" class="w-full h-48 sm:h-56 object-cover">
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -779,6 +920,8 @@
                   <option value="wash-fold">Wash &amp; Fold</option>
                   <option value="wash-iron-fold">Wash, Iron &amp; Fold</option>
                   <option value="dry-cleaning">Dry Cleaning</option>
+                  <option value="upholstery-cleaning">Upholstery Cleaning (Custom Quote)</option>
+                  <option value="rug-cleaning">Rug &amp; Carpet Cleaning (Custom Quote)</option>
                   <option value="stain-removal">Stain Removal</option>
                   <option value="beddings">Beddings &amp; Curtains</option>
                   <option value="corporate">Corporate / Hotel Laundry</option>
@@ -813,6 +956,8 @@
             <ul class="space-y-3 text-gray-400 text-sm">
               <li><a href="#services" class="hover:text-amber-400 transition-colors">Wash &amp; Fold</a></li>
               <li><a href="#services" class="hover:text-amber-400 transition-colors">Dry Cleaning</a></li>
+              <li><a href="#services" class="hover:text-amber-400 transition-colors">Upholstery Cleaning</a></li>
+              <li><a href="#services" class="hover:text-amber-400 transition-colors">Rug &amp; Carpet Cleaning</a></li>
               <li><a href="#services" class="hover:text-amber-400 transition-colors">Stain Removal</a></li>
               <li><a href="#services" class="hover:text-amber-400 transition-colors">Beddings &amp; Curtains</a></li>
             </ul>
