@@ -332,15 +332,84 @@
                 Services</button>
             </div>
           </div>
-          <div class="relative lg:block hidden">
-            <div
-              class="relative z-10 rounded-3xl overflow-hidden shadow-2xl border-4 border-amber-500/20 transform hover:scale-105 transition-transform duration-500">
-              <img src="assets/images/hero-fabrics.jpg" alt="Politymos Fabric Care and Laundry Service"
-                class="w-full h-auto object-cover">
+          <div class="relative w-full max-w-lg mx-auto lg:max-w-none mt-8 lg:mt-0">
+            <div class="relative z-10 rounded-3xl overflow-hidden shadow-2xl border-4 border-amber-500/30 group">
+              <!-- Carousel Track Container -->
+              <div id="hero-carousel-track" class="relative w-full h-[360px] sm:h-[440px] lg:h-[480px]">
+                <!-- Slide 1 -->
+                <div class="hero-slide active absolute inset-0 transition-opacity duration-700 ease-in-out opacity-100 z-10">
+                  <img src="assets/images/hero-fabrics.jpg" alt="Politymos Fabric Care" class="w-full h-full object-cover">
+                  <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-4 sm:p-6">
+                    <span class="text-xs sm:text-sm font-semibold text-amber-400 uppercase tracking-wider">Fabric Care</span>
+                    <p class="text-white text-sm sm:text-base font-medium">Luxury Fabrics &amp; Lace Care</p>
+                  </div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="hero-slide absolute inset-0 transition-opacity duration-700 ease-in-out opacity-0 z-0">
+                  <img src="assets/images/hero-carousel-2.jpg" alt="Hygienic Packaging" class="w-full h-full object-cover">
+                  <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-4 sm:p-6">
+                    <span class="text-xs sm:text-sm font-semibold text-amber-400 uppercase tracking-wider">Hygienic Packaging</span>
+                    <p class="text-white text-sm sm:text-base font-medium">Sealed &amp; Protected Ready for Delivery</p>
+                  </div>
+                </div>
+                <!-- Slide 3 -->
+                <div class="hero-slide absolute inset-0 transition-opacity duration-700 ease-in-out opacity-0 z-0">
+                  <img src="assets/images/hero-carousel-3.jpg" alt="Ankara & Pattern Care" class="w-full h-full object-cover">
+                  <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-4 sm:p-6">
+                    <span class="text-xs sm:text-sm font-semibold text-amber-400 uppercase tracking-wider">Pattern &amp; Print Care</span>
+                    <p class="text-white text-sm sm:text-base font-medium">Preserving Vibrant Colors &amp; Native Prints</p>
+                  </div>
+                </div>
+                <!-- Slide 4 -->
+                <div class="hero-slide absolute inset-0 transition-opacity duration-700 ease-in-out opacity-0 z-0">
+                  <img src="assets/images/hero-carousel-4.jpg" alt="Tailored Garments" class="w-full h-full object-cover">
+                  <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-4 sm:p-6">
+                    <span class="text-xs sm:text-sm font-semibold text-amber-400 uppercase tracking-wider">Professional Pressing</span>
+                    <p class="text-white text-sm sm:text-base font-medium">Expert Finishing for Suits &amp; Custom Wear</p>
+                  </div>
+                </div>
+                <!-- Slide 5 -->
+                <div class="hero-slide absolute inset-0 transition-opacity duration-700 ease-in-out opacity-0 z-0">
+                  <img src="assets/images/hero-carousel-5.jpg" alt="Premium Lace & Embroidery" class="w-full h-full object-cover">
+                  <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-4 sm:p-6">
+                    <span class="text-xs sm:text-sm font-semibold text-amber-400 uppercase tracking-wider">Delicate Treatment</span>
+                    <p class="text-white text-sm sm:text-base font-medium">Gentle Care for Premium Lace Collections</p>
+                  </div>
+                </div>
+                <!-- Slide 6 -->
+                <div class="hero-slide absolute inset-0 transition-opacity duration-700 ease-in-out opacity-0 z-0">
+                  <img src="assets/images/hero-carousel-6.jpg" alt="Textile Refresh" class="w-full h-full object-cover">
+                  <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-4 sm:p-6">
+                    <span class="text-xs sm:text-sm font-semibold text-amber-400 uppercase tracking-wider">Premium Finish</span>
+                    <p class="text-white text-sm sm:text-base font-medium">Fresh, Pristine &amp; Soft Textiles</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Navigation Controls -->
+              <button type="button" id="carousel-prev" aria-label="Previous slide"
+                class="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/50 hover:bg-black/80 backdrop-blur-md text-amber-400 flex items-center justify-center transition-all duration-200 border border-amber-500/30 cursor-pointer hover:scale-110">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" /></svg>
+              </button>
+              <button type="button" id="carousel-next" aria-label="Next slide"
+                class="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/50 hover:bg-black/80 backdrop-blur-md text-amber-400 flex items-center justify-center transition-all duration-200 border border-amber-500/30 cursor-pointer hover:scale-110">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" /></svg>
+              </button>
+
+              <!-- Indicators / Dots -->
+              <div id="carousel-dots" class="absolute bottom-4 right-4 z-20 flex items-center gap-1.5">
+                <button type="button" class="dot active w-6 h-2.5 rounded-full bg-amber-400 transition-all duration-300 cursor-pointer" aria-label="Slide 1"></button>
+                <button type="button" class="dot w-2.5 h-2.5 rounded-full bg-white/50 hover:bg-white transition-all duration-300 cursor-pointer" aria-label="Slide 2"></button>
+                <button type="button" class="dot w-2.5 h-2.5 rounded-full bg-white/50 hover:bg-white transition-all duration-300 cursor-pointer" aria-label="Slide 3"></button>
+                <button type="button" class="dot w-2.5 h-2.5 rounded-full bg-white/50 hover:bg-white transition-all duration-300 cursor-pointer" aria-label="Slide 4"></button>
+                <button type="button" class="dot w-2.5 h-2.5 rounded-full bg-white/50 hover:bg-white transition-all duration-300 cursor-pointer" aria-label="Slide 5"></button>
+                <button type="button" class="dot w-2.5 h-2.5 rounded-full bg-white/50 hover:bg-white transition-all duration-300 cursor-pointer" aria-label="Slide 6"></button>
+              </div>
             </div>
-            <!-- Decorative accent -->
-            <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-amber-500/10 blur-3xl rounded-full"></div>
-            <div class="absolute -top-6 -left-6 w-32 h-32 bg-yellow-500/10 blur-3xl rounded-full"></div>
+
+            <!-- Decorative accents -->
+            <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-amber-500/20 blur-3xl rounded-full pointer-events-none"></div>
+            <div class="absolute -top-6 -left-6 w-32 h-32 bg-yellow-500/20 blur-3xl rounded-full pointer-events-none"></div>
           </div>
         </div>
       </div>
