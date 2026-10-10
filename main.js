@@ -91,6 +91,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (!res.ok) throw new Error("Inquiry failed");
 
+            // Trigger Google Ads conversion event
+            if (typeof gtag === 'function') {
+                gtag('event', 'conversion', { 'send_to': 'AW-17962094946/RMpFCPnEjYUcEOKi__RC' });
+            }
+
             inquiryForm.style.display = "none";
             document.getElementById("form-success")?.classList.remove("hidden");
 
@@ -137,6 +142,11 @@ document.addEventListener("DOMContentLoaded", () => {
             });
 
             if (!res.ok) throw new Error("Quote failed");
+
+            // Trigger Google Ads conversion event
+            if (typeof gtag === 'function') {
+                gtag('event', 'conversion', { 'send_to': 'AW-17962094946/RMpFCPnEjYUcEOKi__RC' });
+            }
 
             quoteForm.style.display = "none";
             document.getElementById("subscription-success")?.classList.remove("hidden");
