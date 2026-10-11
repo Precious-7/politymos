@@ -14,7 +14,7 @@ export default async function handler(req, res) {
 
         const AIRTABLE_PAT = process.env.AIRTABLE_PAT;
         const AIRTABLE_BASE_ID = process.env.AIRTABLE_BASE_ID;
-        const QUOTE_TABLE = process.env.QUOTE_TABLE || "Quote Requests";
+        const QUOTE_TABLE = "Quote Request";
 
         if (!AIRTABLE_PAT || !AIRTABLE_BASE_ID) {
             return res.status(500).json({ error: "Server env vars not set" });
