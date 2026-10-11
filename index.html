@@ -1841,7 +1841,7 @@
       let selectedPlan = '';
 
       const AIRTABLE_TABLE_NAME = 'Quick Inquiries';
-      const AIRTABLE_QUOTE_TABLE_NAME = 'Quote Request';
+      const AIRTABLE_QUOTE_TABLE_NAME = 'Quote Requests';
 
 
       // // Save data and send to Airtable
@@ -2006,7 +2006,7 @@
           return false;
         }
 
-        console.log("✅ Quote request saved to Airtable");
+        console.log("✅ Quote requests saved to Airtable");
         return true;
       }
 
@@ -2062,7 +2062,7 @@
         });
       }
 
-      // Quote form submit is handled in main.js (posts to /api/quote → "Quote Request" sheet)
+      // Quote form submit is handled in main.js (posts to /api/quote → "Quote Requests" sheet)
 
       document.getElementById('close-modal')?.addEventListener('click', closeSubscriptionModal);
       document.getElementById('subscription-modal')?.addEventListener('click', (e) => {
