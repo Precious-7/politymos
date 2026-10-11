@@ -252,17 +252,84 @@
               <input type="email" id="sub-email" name="sub-email" required placeholder="Your email address"
                 class="w-full">
             </div>
-            <button type="submit"
-              class="w-full bg-gradient-to-r from-amber-500 to-yellow-600 text-black py-3 rounded-xl font-semibold hover:from-amber-600 hover:to-yellow-700 transition-colors shadow-md">Submit
-              Quote Request</button>
-          </form>
-          <div id="subscription-success" class="hidden p-5 bg-amber-50 rounded-xl border border-amber-200 text-center">
-            <span class="text-3xl block mb-2">✓</span>
-            <p class="text-amber-800 font-medium">Thank you! We'll contact you soon with your custom quote.</p>
+            <div id="subscription-success"
+              class="hidden p-5 bg-amber-50 rounded-xl border border-amber-200 text-center">
+              <span class="text-3xl block mb-2">✓</span>
+              <p class="text-amber-800 font-medium">Thank you! We'll contact you soon with your custom quote.</p>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PDF Catalogue Viewer Modal Popup -->
+    <div id="pdf-viewer-modal"
+      class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-2 sm:p-4">
+      <div
+        class="bg-white rounded-2xl shadow-2xl max-w-5xl w-full h-[92vh] flex flex-col border border-amber-500/30 overflow-hidden">
+        <!-- Modal Top Bar -->
+        <div
+          class="bg-gradient-to-r from-gray-900 via-gray-800 to-black px-4 sm:px-6 py-4 flex items-center justify-between z-10 shrink-0">
+          <div class="flex items-center gap-3">
+            <span class="text-2xl">📄</span>
+            <div>
+              <h3 class="font-heading text-lg sm:text-xl font-bold text-white leading-tight">Politymos Price List ·
+                October 2026</h3>
+              <p class="text-xs text-amber-400">Official Pricing Catalogue & Service Rates</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2 sm:gap-3">
+            <a href="assets/Politymos_Price_List_October_2026.pdf" download="Politymos_Price_List_October_2026.pdf"
+              class="bg-amber-500 hover:bg-amber-600 text-black px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-bold transition-all duration-200 inline-flex items-center gap-1.5 text-decoration-none shadow">
+              <span>⬇️</span> Download PDF
+            </a>
+            <button type="button" onclick="closePdfModal()"
+              class="text-white/70 hover:text-white hover:bg-white/10 p-2 rounded-lg transition-colors cursor-pointer border-none bg-transparent"
+              aria-label="Close">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Document Viewer Content -->
+        <div class="flex-1 bg-gray-100 overflow-y-auto relative p-2 sm:p-4 flex justify-center">
+          <object data="assets/Politymos_Price_List_October_2026.pdf" type="application/pdf"
+            class="w-full h-full min-h-[600px] rounded-xl shadow-lg border border-gray-300">
+            <!-- Fallback text & link if PDF preview plugin is unavailable on browser -->
+            <div class="p-8 text-center bg-white rounded-xl shadow my-auto max-w-md">
+              <span class="text-4xl block mb-3">📑</span>
+              <h4 class="font-bold text-gray-900 text-lg mb-2">Politymos Price List · October 2026</h4>
+              <p class="text-gray-600 text-sm mb-6">Your browser can view or download the complete PDF price catalogue
+                directly below:</p>
+              <a href="assets/Politymos_Price_List_October_2026.pdf" target="_blank"
+                class="bg-gradient-to-r from-amber-500 to-yellow-600 text-black font-bold px-6 py-3 rounded-xl inline-block mb-3 shadow hover:from-amber-600 hover:to-yellow-700 transition-colors">
+                Open PDF in New Tab &rarr;
+              </a>
+              <div>
+                <a href="assets/Politymos_Price_List_October_2026.pdf" download="Politymos_Price_List_October_2026.pdf"
+                  class="text-amber-700 hover:text-amber-800 font-semibold text-sm underline">
+                  Download PDF File Directly
+                </a>
+              </div>
+            </div>
+          </object>
+        </div>
+
+        <!-- Modal Footer Bar -->
+        <div
+          class="bg-gray-50 border-t border-gray-200 px-4 py-3 flex items-center justify-between text-xs text-gray-500 shrink-0">
+          <span>Prices valid from October 2026. Reviewed quarterly.</span>
+          <div class="flex items-center gap-4">
+            <a href="assets/Politymos_Price_List_October_2026.pdf" target="_blank"
+              class="text-gray-600 hover:text-amber-600 font-medium">Open in Full Window</a>
+            <button type="button" onclick="closePdfModal()"
+              class="text-gray-600 hover:text-gray-900 font-medium cursor-pointer border-none bg-transparent">Close</button>
           </div>
         </div>
       </div>
     </div>
+
     <!-- Navigation -->
     <nav
       class="nav-header fixed top-0 left-0 right-0 z-50 bg-white/98 backdrop-blur-md shadow-lg border-b border-gray-200/80">
@@ -276,6 +343,9 @@
               class="nav-link px-4 py-2.5 rounded-lg text-gray-600 hover:text-amber-600 hover:bg-amber-50 font-medium transition-all duration-200">Services</a>
             <a href="#pricing"
               class="nav-link px-4 py-2.5 rounded-lg text-gray-600 hover:text-amber-600 hover:bg-amber-50 font-medium transition-all duration-200">Pricing</a>
+            <button type="button" onclick="openPdfModal()"
+              class="px-3.5 py-2 rounded-xl text-amber-700 bg-amber-50 hover:bg-amber-100 font-semibold text-sm transition-all duration-200 inline-flex items-center gap-1.5 cursor-pointer border-none font-body shadow-sm"><span>📄</span>
+              Price List PDF</button>
             <a href="#process"
               class="nav-link px-4 py-2.5 rounded-lg text-gray-600 hover:text-amber-600 hover:bg-amber-50 font-medium transition-all duration-200">How
               It Works</a>
@@ -297,6 +367,12 @@
             class="nav-link block py-3 px-4 rounded-lg text-gray-600 hover:text-amber-600 hover:bg-amber-50 font-medium">Services</a>
           <a href="#pricing"
             class="nav-link block py-3 px-4 rounded-lg text-gray-600 hover:text-amber-600 hover:bg-amber-50 font-medium">Pricing</a>
+          <button type="button" onclick="openPdfModal()"
+            class="w-full text-left py-3 px-4 rounded-lg text-amber-800 bg-amber-50 hover:bg-amber-100 font-bold flex items-center gap-2 cursor-pointer border-none font-body"><span>📄</span>
+            View Price List PDF</button>
+          <a href="assets/Politymos_Price_List_October_2026.pdf" download="Politymos_Price_List_October_2026.pdf"
+            class="block py-3 px-4 rounded-lg text-amber-800 bg-amber-50/60 font-semibold flex items-center gap-2"><span>⬇️</span>
+            Download Price PDF</a>
           <a href="#process"
             class="nav-link block py-3 px-4 rounded-lg text-gray-600 hover:text-amber-600 hover:bg-amber-50 font-medium">How
             It Works</a>
@@ -337,50 +413,70 @@
               <!-- Carousel Track Container -->
               <div id="hero-carousel-track" class="relative w-full h-[360px] sm:h-[440px] lg:h-[480px]">
                 <!-- Slide 1 -->
-                <div class="hero-slide active absolute inset-0 transition-opacity duration-700 ease-in-out opacity-100 z-10">
-                  <img src="assets/images/hero-fabrics.jpg" alt="Politymos Fabric Care" class="w-full h-full object-cover">
-                  <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-4 sm:p-6">
-                    <span class="text-xs sm:text-sm font-semibold text-amber-400 uppercase tracking-wider">Fabric Care</span>
+                <div
+                  class="hero-slide active absolute inset-0 transition-opacity duration-700 ease-in-out opacity-100 z-10">
+                  <img src="assets/images/hero-fabrics.jpg" alt="Politymos Fabric Care"
+                    class="w-full h-full object-cover">
+                  <div
+                    class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-4 sm:p-6">
+                    <span class="text-xs sm:text-sm font-semibold text-amber-400 uppercase tracking-wider">Fabric
+                      Care</span>
                     <p class="text-white text-sm sm:text-base font-medium">Luxury Fabrics &amp; Lace Care</p>
                   </div>
                 </div>
                 <!-- Slide 2 -->
                 <div class="hero-slide absolute inset-0 transition-opacity duration-700 ease-in-out opacity-0 z-0">
-                  <img src="assets/images/hero-carousel-2.jpg" alt="Hygienic Packaging" class="w-full h-full object-cover">
-                  <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-4 sm:p-6">
-                    <span class="text-xs sm:text-sm font-semibold text-amber-400 uppercase tracking-wider">Hygienic Packaging</span>
+                  <img src="assets/images/hero-carousel-2.jpg" alt="Hygienic Packaging"
+                    class="w-full h-full object-cover">
+                  <div
+                    class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-4 sm:p-6">
+                    <span class="text-xs sm:text-sm font-semibold text-amber-400 uppercase tracking-wider">Hygienic
+                      Packaging</span>
                     <p class="text-white text-sm sm:text-base font-medium">Sealed &amp; Protected Ready for Delivery</p>
                   </div>
                 </div>
                 <!-- Slide 3 -->
                 <div class="hero-slide absolute inset-0 transition-opacity duration-700 ease-in-out opacity-0 z-0">
-                  <img src="assets/images/hero-carousel-3.jpg" alt="Ankara & Pattern Care" class="w-full h-full object-cover">
-                  <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-4 sm:p-6">
-                    <span class="text-xs sm:text-sm font-semibold text-amber-400 uppercase tracking-wider">Pattern &amp; Print Care</span>
-                    <p class="text-white text-sm sm:text-base font-medium">Preserving Vibrant Colors &amp; Native Prints</p>
+                  <img src="assets/images/hero-carousel-3.jpg" alt="Ankara & Pattern Care"
+                    class="w-full h-full object-cover">
+                  <div
+                    class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-4 sm:p-6">
+                    <span class="text-xs sm:text-sm font-semibold text-amber-400 uppercase tracking-wider">Pattern &amp;
+                      Print Care</span>
+                    <p class="text-white text-sm sm:text-base font-medium">Preserving Vibrant Colors &amp; Native Prints
+                    </p>
                   </div>
                 </div>
                 <!-- Slide 4 -->
                 <div class="hero-slide absolute inset-0 transition-opacity duration-700 ease-in-out opacity-0 z-0">
-                  <img src="assets/images/hero-carousel-4.jpg" alt="Tailored Garments" class="w-full h-full object-cover">
-                  <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-4 sm:p-6">
-                    <span class="text-xs sm:text-sm font-semibold text-amber-400 uppercase tracking-wider">Professional Pressing</span>
-                    <p class="text-white text-sm sm:text-base font-medium">Expert Finishing for Suits &amp; Custom Wear</p>
+                  <img src="assets/images/hero-carousel-4.jpg" alt="Tailored Garments"
+                    class="w-full h-full object-cover">
+                  <div
+                    class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-4 sm:p-6">
+                    <span class="text-xs sm:text-sm font-semibold text-amber-400 uppercase tracking-wider">Professional
+                      Pressing</span>
+                    <p class="text-white text-sm sm:text-base font-medium">Expert Finishing for Suits &amp; Custom Wear
+                    </p>
                   </div>
                 </div>
                 <!-- Slide 5 -->
                 <div class="hero-slide absolute inset-0 transition-opacity duration-700 ease-in-out opacity-0 z-0">
-                  <img src="assets/images/hero-carousel-5.jpg" alt="Premium Lace & Embroidery" class="w-full h-full object-cover">
-                  <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-4 sm:p-6">
-                    <span class="text-xs sm:text-sm font-semibold text-amber-400 uppercase tracking-wider">Delicate Treatment</span>
+                  <img src="assets/images/hero-carousel-5.jpg" alt="Premium Lace & Embroidery"
+                    class="w-full h-full object-cover">
+                  <div
+                    class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-4 sm:p-6">
+                    <span class="text-xs sm:text-sm font-semibold text-amber-400 uppercase tracking-wider">Delicate
+                      Treatment</span>
                     <p class="text-white text-sm sm:text-base font-medium">Gentle Care for Premium Lace Collections</p>
                   </div>
                 </div>
                 <!-- Slide 6 -->
                 <div class="hero-slide absolute inset-0 transition-opacity duration-700 ease-in-out opacity-0 z-0">
                   <img src="assets/images/hero-carousel-6.jpg" alt="Textile Refresh" class="w-full h-full object-cover">
-                  <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-4 sm:p-6">
-                    <span class="text-xs sm:text-sm font-semibold text-amber-400 uppercase tracking-wider">Premium Finish</span>
+                  <div
+                    class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-4 sm:p-6">
+                    <span class="text-xs sm:text-sm font-semibold text-amber-400 uppercase tracking-wider">Premium
+                      Finish</span>
                     <p class="text-white text-sm sm:text-base font-medium">Fresh, Pristine &amp; Soft Textiles</p>
                   </div>
                 </div>
@@ -389,27 +485,46 @@
               <!-- Navigation Controls -->
               <button type="button" id="carousel-prev" aria-label="Previous slide"
                 class="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/50 hover:bg-black/80 backdrop-blur-md text-amber-400 flex items-center justify-center transition-all duration-200 border border-amber-500/30 cursor-pointer hover:scale-110">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" /></svg>
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+                </svg>
               </button>
               <button type="button" id="carousel-next" aria-label="Next slide"
                 class="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/50 hover:bg-black/80 backdrop-blur-md text-amber-400 flex items-center justify-center transition-all duration-200 border border-amber-500/30 cursor-pointer hover:scale-110">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" /></svg>
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+                </svg>
               </button>
 
               <!-- Indicators / Dots -->
               <div id="carousel-dots" class="absolute bottom-4 right-4 z-20 flex items-center gap-1.5">
-                <button type="button" class="dot active w-6 h-2.5 rounded-full bg-amber-400 transition-all duration-300 cursor-pointer" aria-label="Slide 1"></button>
-                <button type="button" class="dot w-2.5 h-2.5 rounded-full bg-white/50 hover:bg-white transition-all duration-300 cursor-pointer" aria-label="Slide 2"></button>
-                <button type="button" class="dot w-2.5 h-2.5 rounded-full bg-white/50 hover:bg-white transition-all duration-300 cursor-pointer" aria-label="Slide 3"></button>
-                <button type="button" class="dot w-2.5 h-2.5 rounded-full bg-white/50 hover:bg-white transition-all duration-300 cursor-pointer" aria-label="Slide 4"></button>
-                <button type="button" class="dot w-2.5 h-2.5 rounded-full bg-white/50 hover:bg-white transition-all duration-300 cursor-pointer" aria-label="Slide 5"></button>
-                <button type="button" class="dot w-2.5 h-2.5 rounded-full bg-white/50 hover:bg-white transition-all duration-300 cursor-pointer" aria-label="Slide 6"></button>
+                <button type="button"
+                  class="dot active w-6 h-2.5 rounded-full bg-amber-400 transition-all duration-300 cursor-pointer"
+                  aria-label="Slide 1"></button>
+                <button type="button"
+                  class="dot w-2.5 h-2.5 rounded-full bg-white/50 hover:bg-white transition-all duration-300 cursor-pointer"
+                  aria-label="Slide 2"></button>
+                <button type="button"
+                  class="dot w-2.5 h-2.5 rounded-full bg-white/50 hover:bg-white transition-all duration-300 cursor-pointer"
+                  aria-label="Slide 3"></button>
+                <button type="button"
+                  class="dot w-2.5 h-2.5 rounded-full bg-white/50 hover:bg-white transition-all duration-300 cursor-pointer"
+                  aria-label="Slide 4"></button>
+                <button type="button"
+                  class="dot w-2.5 h-2.5 rounded-full bg-white/50 hover:bg-white transition-all duration-300 cursor-pointer"
+                  aria-label="Slide 5"></button>
+                <button type="button"
+                  class="dot w-2.5 h-2.5 rounded-full bg-white/50 hover:bg-white transition-all duration-300 cursor-pointer"
+                  aria-label="Slide 6"></button>
               </div>
             </div>
 
             <!-- Decorative accents -->
-            <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-amber-500/20 blur-3xl rounded-full pointer-events-none"></div>
-            <div class="absolute -top-6 -left-6 w-32 h-32 bg-yellow-500/20 blur-3xl rounded-full pointer-events-none"></div>
+            <div
+              class="absolute -bottom-6 -right-6 w-32 h-32 bg-amber-500/20 blur-3xl rounded-full pointer-events-none">
+            </div>
+            <div class="absolute -top-6 -left-6 w-32 h-32 bg-yellow-500/20 blur-3xl rounded-full pointer-events-none">
+            </div>
           </div>
         </div>
       </div>
@@ -491,11 +606,15 @@
                 class="w-16 h-16 bg-gradient-to-br from-amber-400 to-yellow-500 rounded-xl flex items-center justify-center">
                 <span class="text-3xl">🛋️</span>
               </div>
-              <span class="bg-amber-100 text-amber-900 border border-amber-300 text-xs font-bold px-3 py-1 rounded-full">Custom Quote</span>
+              <span
+                class="bg-amber-100 text-amber-900 border border-amber-300 text-xs font-bold px-3 py-1 rounded-full">Custom
+                Quote</span>
             </div>
             <h3 class="font-heading text-xl font-bold text-gray-800 mb-2">Upholstery Cleaning</h3>
-            <p class="text-gray-600 mb-4">Deep cleaning, odor removal, and stain extraction for sofas, armchairs, couches, and padded seating.</p>
-            <a href="#contact" class="inline-flex items-center gap-2 text-sm font-bold text-amber-600 hover:text-amber-700 transition-colors">
+            <p class="text-gray-600 mb-4">Deep cleaning, odor removal, and stain extraction for sofas, armchairs,
+              couches, and padded seating.</p>
+            <a href="#contact"
+              class="inline-flex items-center gap-2 text-sm font-bold text-amber-600 hover:text-amber-700 transition-colors">
               Message for Quote &rarr;
             </a>
           </div>
@@ -505,41 +624,60 @@
                 class="w-16 h-16 bg-gradient-to-br from-amber-400 to-yellow-500 rounded-xl flex items-center justify-center">
                 <span class="text-3xl">🧹</span>
               </div>
-              <span class="bg-amber-100 text-amber-900 border border-amber-300 text-xs font-bold px-3 py-1 rounded-full">Custom Quote</span>
+              <span
+                class="bg-amber-100 text-amber-900 border border-amber-300 text-xs font-bold px-3 py-1 rounded-full">Custom
+                Quote</span>
             </div>
             <h3 class="font-heading text-xl font-bold text-gray-800 mb-2">Rug &amp; Carpet Cleaning</h3>
-            <p class="text-gray-600 mb-4">Specialized deep washing and extraction for area rugs, carpets, mats, and floor coverings.</p>
-            <a href="#contact" class="inline-flex items-center gap-2 text-sm font-bold text-amber-600 hover:text-amber-700 transition-colors">
+            <p class="text-gray-600 mb-4">Specialized deep washing and extraction for area rugs, carpets, mats, and
+              floor coverings.</p>
+            <a href="#contact"
+              class="inline-flex items-center gap-2 text-sm font-bold text-amber-600 hover:text-amber-700 transition-colors">
               Message for Quote &rarr;
             </a>
           </div>
         </div>
 
         <!-- Upholstery & Furniture Showcase -->
-        <div class="mt-16 bg-gradient-to-r from-amber-500/10 via-amber-400/5 to-yellow-500/10 rounded-3xl p-8 lg:p-12 border border-amber-500/20">
+        <div
+          class="mt-16 bg-gradient-to-r from-amber-500/10 via-amber-400/5 to-yellow-500/10 rounded-3xl p-8 lg:p-12 border border-amber-500/20">
           <div class="grid lg:grid-cols-2 gap-8 items-center">
             <div>
-              <span class="bg-amber-500 text-black text-xs font-bold tracking-wider uppercase px-3 py-1 rounded-full">Specialty Care</span>
-              <h3 class="font-heading text-2xl sm:text-3xl font-bold text-gray-900 mt-4 mb-4">Upholstery &amp; Sofa Deep Cleaning</h3>
-              <p class="text-gray-700 mb-6">Give your furniture a brand-new look and feel! We provide specialized deep extraction cleaning for armchairs, sectional sofas, velvet couches, and area rugs. Contact us today for a fast custom price quote.</p>
+              <span
+                class="bg-amber-500 text-black text-xs font-bold tracking-wider uppercase px-3 py-1 rounded-full">Specialty
+                Care</span>
+              <h3 class="font-heading text-2xl sm:text-3xl font-bold text-gray-900 mt-4 mb-4">Upholstery &amp; Sofa Deep
+                Cleaning</h3>
+              <p class="text-gray-700 mb-6">Give your furniture a brand-new look and feel! We provide specialized deep
+                extraction cleaning for armchairs, sectional sofas, velvet couches, and area rugs. Contact us today for
+                a fast custom price quote.</p>
               <div class="flex flex-wrap gap-4">
-                <a href="https://wa.me/+2348160814084?text=Hi%2C%20I%20would%20like%20to%20get%20a%20custom%20quote%20for%20Upholstery%20%2F%20Rug%20cleaning" target="_blank" rel="noopener noreferrer" class="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-6 py-3 rounded-full shadow-md transition-colors inline-flex items-center gap-2">
+                <a href="https://wa.me/+2348160814084?text=Hi%2C%20I%20would%20like%20to%20get%20a%20custom%20quote%20for%20Upholstery%20%2F%20Rug%20cleaning"
+                  target="_blank" rel="noopener noreferrer"
+                  class="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-6 py-3 rounded-full shadow-md transition-colors inline-flex items-center gap-2">
                   <span>💬</span> WhatsApp for Custom Quote
                 </a>
-                <a href="#contact" class="bg-black hover:bg-gray-800 text-amber-400 font-semibold px-6 py-3 rounded-full transition-colors inline-flex items-center gap-2">
+                <a href="#contact"
+                  class="bg-black hover:bg-gray-800 text-amber-400 font-semibold px-6 py-3 rounded-full transition-colors inline-flex items-center gap-2">
                   <span>✉️</span> Send Message / Inquiry
                 </a>
               </div>
             </div>
             <div class="grid grid-cols-3 gap-3 sm:gap-4">
-              <div class="rounded-2xl overflow-hidden shadow-lg border-2 border-white transform hover:scale-105 transition-transform duration-300">
-                <img src="assets/images/upholstery-1.jpg" alt="Armchair Upholstery Cleaning" class="w-full h-48 sm:h-56 object-cover">
+              <div
+                class="rounded-2xl overflow-hidden shadow-lg border-2 border-white transform hover:scale-105 transition-transform duration-300">
+                <img src="assets/images/upholstery-1.jpg" alt="Armchair Upholstery Cleaning"
+                  class="w-full h-48 sm:h-56 object-cover">
               </div>
-              <div class="rounded-2xl overflow-hidden shadow-lg border-2 border-white transform hover:scale-105 transition-transform duration-300">
-                <img src="assets/images/upholstery-2.jpg" alt="Sofa Deep Cleaning" class="w-full h-48 sm:h-56 object-cover">
+              <div
+                class="rounded-2xl overflow-hidden shadow-lg border-2 border-white transform hover:scale-105 transition-transform duration-300">
+                <img src="assets/images/upholstery-2.jpg" alt="Sofa Deep Cleaning"
+                  class="w-full h-48 sm:h-56 object-cover">
               </div>
-              <div class="rounded-2xl overflow-hidden shadow-lg border-2 border-white transform hover:scale-105 transition-transform duration-300">
-                <img src="assets/images/upholstery-3.jpg" alt="Fabric Couch Care" class="w-full h-48 sm:h-56 object-cover">
+              <div
+                class="rounded-2xl overflow-hidden shadow-lg border-2 border-white transform hover:scale-105 transition-transform duration-300">
+                <img src="assets/images/upholstery-3.jpg" alt="Fabric Couch Care"
+                  class="w-full h-48 sm:h-56 object-cover">
               </div>
             </div>
           </div>
@@ -635,7 +773,7 @@
                 <div class="bg-white rounded-2xl p-6 shadow-md text-center border border-amber-200">
                   <div
                     class="text-4xl font-heading font-bold bg-gradient-to-r from-amber-500 to-yellow-600 bg-clip-text text-transparent mb-2">
-                    Free
+                    Fast
                   </div>
                   <div class="text-gray-600 text-sm">
                     Pickup &amp; Delivery
@@ -655,76 +793,714 @@
           </div>
         </div>
       </div>
-    </section><!-- Pricing Section -->
+    </section> <!-- Pricing Section -->
     <section id="pricing" class="py-20 bg-gray-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-          <h2 class="font-heading text-3xl sm:text-4xl font-bold text-gray-800 mb-4">Transparent Pricing</h2>
-          <p class="text-gray-600 text-lg max-w-2xl mx-auto">Prices may vary depending on fabric type and condition.
-            Contact us for a personalized quote.</p>
-        </div>
-        <div class="grid lg:grid-cols-2 gap-8">
-          <div class="bg-white rounded-2xl p-8 shadow-md">
-            <h3 class="font-heading text-2xl font-bold text-gray-800 mb-6">Per Item Pricing</h3>
-            <div class="space-y-4">
-              <div class="flex justify-between items-center py-3 border-b border-gray-100"><span
-                  class="text-gray-700">Shirts / T-shirts</span> <span class="font-semibold text-amber-600">from
-                  ₦800</span>
-              </div>
-              <div class="flex justify-between items-center py-3 border-b border-gray-100"><span
-                  class="text-gray-700">Trousers / Jeans</span> <span class="font-semibold text-amber-600">from
-                  ₦1,000</span>
-              </div>
-              <div class="flex justify-between items-center py-3 border-b border-gray-100"><span
-                  class="text-gray-700">Native Wear (Agbada, etc.)</span> <span
-                  class="font-semibold text-amber-600">from ₦1,800</span>
-              </div>
-              <div class="flex justify-between items-center py-3 border-b border-gray-100"><span
-                  class="text-gray-700">Bedsheets</span> <span class="font-semibold text-amber-600">from ₦1,300</span>
-              </div>
-              <div class="flex justify-between items-center py-3 border-b border-gray-100"><span
-                  class="text-gray-700">Duvets</span> <span class="font-semibold text-amber-600">from ₦2,500</span>
-              </div>
-              <div class="flex justify-between items-center py-3"><span class="text-gray-700">Suits (2-piece)</span>
-                <span class="font-semibold text-amber-600">from ₦2,500</span>
-              </div>
-            </div>
-          </div>
+        <!-- Section Header -->
+        <div class="text-center mb-12">
+          <span
+            class="bg-amber-100 text-amber-900 border border-amber-300 text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full inline-block mb-3">Official
+            Base Price List · October 2026</span>
+          <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Price List</h2>
+          <p class="text-gray-600 text-lg max-w-3xl mx-auto">We count and confirm every item with you before anything is
+            washed, so the price you agree is the price you pay.</p>
+
+          <!-- Base Price Disclaimer Callout -->
           <div
-            class="bg-gradient-to-br from-black to-gray-900 rounded-2xl p-8 shadow-md text-white border-2 border-amber-500">
-            <h3 class="font-heading text-2xl font-bold mb-6 text-amber-400">Subscription Packages</h3>
-            <p class="text-gray-300 mb-8">Ideal for individuals, families, and businesses. Custom pricing available
-              based on volume.</p>
-            <div class="space-y-6">
-              <div class="bg-amber-500/10 rounded-xl p-6 backdrop-blur-sm border border-amber-500/30">
-                <div class="flex items-center gap-4 mb-3">
-                  <div
-                    class="w-12 h-12 bg-gradient-to-br from-amber-400 to-yellow-500 rounded-full flex items-center justify-center">
-                    <span class="text-2xl">📅</span>
-                  </div>
-                  <div>
-                    <h4 class="font-semibold text-lg">Weekly Plan</h4>
-                    <p class="text-gray-400 text-sm">Perfect for busy professionals</p>
-                  </div>
-                </div>
+            class="mt-6 bg-amber-50/90 border-l-4 border-amber-500 rounded-r-xl p-4 text-left max-w-3xl mx-auto shadow-sm">
+            <div class="flex items-start gap-3">
+              <span class="text-amber-600 text-xl font-bold">ℹ️</span>
+              <p class="text-xs sm:text-sm text-amber-950 leading-relaxed">
+                <strong>Important Note on Pricing:</strong> All listed prices are <strong>starting base rates</strong>.
+                Final prices may vary depending on fabric delicacy, item size, heavy embellishments, stain severity, or
+                specialized care requirements. Every item is inspected and confirmed with you before service begins.
+              </p>
+            </div>
+          </div>
+
+          <!-- Catalogue View & Download Bar -->
+          <div
+            class="mt-8 flex flex-wrap items-center justify-center gap-4 bg-gradient-to-r from-gray-900 via-gray-800 to-black p-4 sm:p-6 rounded-2xl shadow-xl border border-amber-500/30 max-w-4xl mx-auto">
+            <div class="text-left flex-1 min-w-[240px]">
+              <div class="flex items-center gap-2 text-amber-400 font-bold text-base sm:text-lg">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                Politymos Base Pricing Catalogue PDF
               </div>
-              <div class="bg-amber-500/10 rounded-xl p-6 backdrop-blur-sm border border-amber-500/30">
-                <div class="flex items-center gap-4 mb-3">
-                  <div
-                    class="w-12 h-12 bg-gradient-to-br from-amber-400 to-yellow-500 rounded-full flex items-center justify-center">
-                    <span class="text-2xl">📆</span>
-                  </div>
-                  <div>
-                    <h4 class="font-semibold text-lg">Monthly Plan</h4>
-                    <p class="text-gray-400 text-sm">Best value for families</p>
-                  </div>
-                </div>
-              </div><button type="button" id="btn-get-quote"
-                class="block w-full bg-gradient-to-r from-amber-500 to-yellow-600 text-black py-3 rounded-xl font-semibold text-center hover:from-amber-600 hover:to-yellow-700 transition-colors cursor-pointer border-none font-body">Get
-                Custom Quote</button>
+              <p class="text-gray-300 text-xs sm:text-sm mt-0.5">View full document online or download to your device
+                (4-page PDF, Oct 2026)</p>
+            </div>
+            <div class="flex flex-wrap items-center gap-3">
+              <button type="button" id="btn-view-pdf" onclick="openPdfModal()"
+                class="bg-gradient-to-r from-amber-500 to-yellow-600 hover:from-amber-600 hover:to-yellow-700 text-black px-5 py-2.5 rounded-xl font-bold text-sm transition-all duration-200 shadow-md hover:shadow-lg inline-flex items-center gap-2 cursor-pointer border-none font-body">
+                <span>👁️</span> View Document
+              </button>
+              <a href="assets/Politymos_Price_List_October_2026.pdf" download="Politymos_Price_List_October_2026.pdf"
+                class="bg-white/10 hover:bg-white/20 text-amber-300 border border-amber-400/50 hover:border-amber-400 px-5 py-2.5 rounded-xl font-bold text-sm transition-all duration-200 inline-flex items-center gap-2 text-decoration-none">
+                <span>⬇️</span> Download PDF
+              </a>
             </div>
           </div>
         </div>
+
+        <!-- Category Selector Section -->
+        <div class="mb-10 max-w-4xl mx-auto">
+          <!-- UX Navigation Guidance Prompt -->
+          <div class="flex items-center justify-center gap-2 mb-3">
+            <span class="text-amber-600 animate-bounce text-sm font-bold">👇</span>
+            <p class="text-xs sm:text-sm font-bold text-gray-800 uppercase tracking-wide">Select price category to view:
+            </p>
+          </div>
+
+          <!-- Mobile Dropdown Selector (visible on small mobile screens) -->
+          <div class="block sm:hidden mb-4">
+            <label for="mobile-price-category-select" class="sr-only">Select Price Category</label>
+            <div class="relative">
+              <select id="mobile-price-category-select" onchange="switchPriceTab(this.value)"
+                class="w-full bg-amber-50 border-2 border-amber-500 font-bold text-gray-900 py-3.5 px-4 pr-10 rounded-xl shadow-md text-sm appearance-none focus:outline-none focus:ring-2 focus:ring-amber-500 cursor-pointer">
+                <option value="everyday">Everyday & Outerwear</option>
+                <option value="bedding">Bedding & Home</option>
+                <option value="gym-native">Gym, Shoes & Native Wear</option>
+                <option value="bulk-delivery">Bulk Bundles & Delivery</option>
+                <option value="all">✨ Show All Categories Below</option>
+              </select>
+              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3.5 text-amber-700">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Desktop & Tablet Pill Selector Bar (flex on sm and up) -->
+          <div class="hidden sm:flex flex-wrap justify-center items-center gap-2 border-b border-gray-200 pb-4">
+            <button type="button" onclick="switchPriceTab('everyday')" id="tab-btn-everyday"
+              class="price-tab-btn active px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all cursor-pointer bg-amber-500 text-black shadow-md border-2 border-amber-500 inline-flex items-center gap-1.5">
+              <span>👕</span> Everyday & Outerwear
+            </button>
+            <button type="button" onclick="switchPriceTab('bedding')" id="tab-btn-bedding"
+              class="price-tab-btn px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all cursor-pointer bg-white text-gray-700 hover:bg-amber-50 border-2 border-gray-200 hover:border-amber-400 inline-flex items-center gap-1.5">
+              <span>🛏️</span> Bedding & Home
+            </button>
+            <button type="button" onclick="switchPriceTab('gym-native')" id="tab-btn-gym-native"
+              class="price-tab-btn px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all cursor-pointer bg-white text-gray-700 hover:bg-amber-50 border-2 border-gray-200 hover:border-amber-400 inline-flex items-center gap-1.5">
+              <span>👑</span> Gym, Shoes & Native
+            </button>
+            <button type="button" onclick="switchPriceTab('bulk-delivery')" id="tab-btn-bulk-delivery"
+              class="price-tab-btn px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all cursor-pointer bg-white text-gray-700 hover:bg-amber-50 border-2 border-gray-200 hover:border-amber-400 inline-flex items-center gap-1.5">
+              <span>📦</span> Bulk & Delivery
+            </button>
+            <button type="button" onclick="switchPriceTab('all')" id="tab-btn-all"
+              class="price-tab-btn px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all cursor-pointer bg-black text-amber-400 hover:bg-gray-800 border-2 border-black inline-flex items-center gap-1.5">
+              <span>✨</span> Show All
+            </button>
+          </div>
+        </div>
+
+        <!-- Tab 1: Everyday Wear & Outerwear -->
+        <div id="price-tab-everyday" class="price-tab-content block">
+          <div class="grid lg:grid-cols-2 gap-8">
+            <!-- Everyday Wear Table -->
+            <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-md border border-gray-100">
+              <div class="flex items-center justify-between border-b border-amber-200 pb-4 mb-4">
+                <div>
+                  <h3 class="font-heading text-2xl font-bold text-gray-900">Everyday Wear</h3>
+                  <p class="text-xs text-gray-500">Regular laundry items & garments</p>
+                </div>
+                <span class="text-2xl">👕</span>
+              </div>
+              <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                  <thead>
+                    <tr class="border-b border-gray-200 text-xs font-bold text-gray-500 uppercase">
+                      <th class="py-2.5 pr-2">Item</th>
+                      <th class="py-2.5 px-2 text-right">Wash & Iron</th>
+                      <th class="py-2.5 pl-2 text-right">Iron Only</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-gray-100 text-sm text-gray-800">
+                    <tr>
+                      <td class="py-2.5 pr-2 font-medium">Shirt or polo</td>
+                      <td class="py-2.5 px-2 text-right font-semibold text-amber-600">₦1,000</td>
+                      <td class="py-2.5 pl-2 text-right font-medium text-gray-600">₦500</td>
+                    </tr>
+                    <tr>
+                      <td class="py-2.5 pr-2 font-medium">T-shirt / round neck</td>
+                      <td class="py-2.5 px-2 text-right font-semibold text-amber-600">₦1,000</td>
+                      <td class="py-2.5 pl-2 text-right font-medium text-gray-600">₦500</td>
+                    </tr>
+                    <tr>
+                      <td class="py-2.5 pr-2 font-medium">Sweatshirt</td>
+                      <td class="py-2.5 px-2 text-right font-semibold text-amber-600">₦1,000</td>
+                      <td class="py-2.5 pl-2 text-right font-medium text-gray-600">₦500</td>
+                    </tr>
+                    <tr>
+                      <td class="py-2.5 pr-2 font-medium">Singlet</td>
+                      <td class="py-2.5 px-2 text-right font-semibold text-amber-600">₦800</td>
+                      <td class="py-2.5 pl-2 text-right font-medium text-gray-600">₦400</td>
+                    </tr>
+                    <tr>
+                      <td class="py-2.5 pr-2 font-medium">Trouser or chinos</td>
+                      <td class="py-2.5 px-2 text-right font-semibold text-amber-600">₦1,000</td>
+                      <td class="py-2.5 pl-2 text-right font-medium text-gray-600">₦500</td>
+                    </tr>
+                    <tr>
+                      <td class="py-2.5 pr-2 font-medium">Shorts</td>
+                      <td class="py-2.5 px-2 text-right font-semibold text-amber-600">₦700</td>
+                      <td class="py-2.5 pl-2 text-right font-medium text-gray-600">₦350</td>
+                    </tr>
+                    <tr>
+                      <td class="py-2.5 pr-2 font-medium">Dress</td>
+                      <td class="py-2.5 px-2 text-right font-semibold text-amber-600">₦800</td>
+                      <td class="py-2.5 pl-2 text-right font-medium text-gray-600">₦400</td>
+                    </tr>
+                    <tr>
+                      <td class="py-2.5 pr-2 font-medium">Long gown</td>
+                      <td class="py-2.5 px-2 text-right font-semibold text-amber-600">₦800</td>
+                      <td class="py-2.5 pl-2 text-right font-medium text-gray-600">₦400</td>
+                    </tr>
+                    <tr>
+                      <td class="py-2.5 pr-2 font-medium">Two-piece, female</td>
+                      <td class="py-2.5 px-2 text-right font-semibold text-amber-600">₦1,500</td>
+                      <td class="py-2.5 pl-2 text-right font-medium text-gray-600">₦750</td>
+                    </tr>
+                    <tr>
+                      <td class="py-2.5 pr-2 font-medium">Shirt & trouser set</td>
+                      <td class="py-2.5 px-2 text-right font-semibold text-amber-600">₦1,500</td>
+                      <td class="py-2.5 pl-2 text-right font-medium text-gray-600">₦750</td>
+                    </tr>
+                    <tr>
+                      <td class="py-2.5 pr-2 font-medium">Leggings</td>
+                      <td class="py-2.5 px-2 text-right font-semibold text-amber-600">₦800</td>
+                      <td class="py-2.5 pl-2 text-right font-medium text-gray-600">₦400</td>
+                    </tr>
+                    <tr>
+                      <td class="py-2.5 pr-2 font-medium">Beaded or embellished<br><span
+                          class="text-[11px] text-gray-400 italic">Hand-finished care</span></td>
+                      <td class="py-2.5 px-2 text-right font-semibold text-amber-600">₦2,000</td>
+                      <td class="py-2.5 pl-2 text-right font-medium text-gray-600">₦1,000</td>
+                    </tr>
+                    <tr>
+                      <td class="py-2.5 pr-2 font-medium">Face cap</td>
+                      <td class="py-2.5 px-2 text-right font-semibold text-amber-600">₦500</td>
+                      <td class="py-2.5 pl-2 text-right text-gray-400">-</td>
+                    </tr>
+                    <tr>
+                      <td class="py-2.5 pr-2 font-medium">Linen garment</td>
+                      <td class="py-2.5 px-2 text-right font-semibold text-amber-600">₦1,000</td>
+                      <td class="py-2.5 pl-2 text-right font-medium text-gray-600">₦500</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Outerwear & Bags/Boxes Card -->
+            <div class="space-y-8">
+              <!-- Outerwear -->
+              <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-md border border-gray-100">
+                <div class="flex items-center justify-between border-b border-amber-200 pb-4 mb-4">
+                  <div>
+                    <h3 class="font-heading text-2xl font-bold text-gray-900">Outerwear</h3>
+                    <p class="text-xs text-gray-500">Jackets, hoodies & cold-weather wear</p>
+                  </div>
+                  <span class="text-2xl">🧥</span>
+                </div>
+                <table class="w-full text-left border-collapse">
+                  <thead>
+                    <tr class="border-b border-gray-200 text-xs font-bold text-gray-500 uppercase">
+                      <th class="py-2.5 pr-2">Item</th>
+                      <th class="py-2.5 px-2 text-right">Wash & Iron</th>
+                      <th class="py-2.5 pl-2 text-right">Iron Only</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-gray-100 text-sm text-gray-800">
+                    <tr>
+                      <td class="py-2.5 pr-2 font-medium">Hoodie</td>
+                      <td class="py-2.5 px-2 text-right font-semibold text-amber-600">₦1,200</td>
+                      <td class="py-2.5 pl-2 text-right font-medium text-gray-600">₦600</td>
+                    </tr>
+                    <tr>
+                      <td class="py-2.5 pr-2 font-medium">Jacket</td>
+                      <td class="py-2.5 px-2 text-right font-semibold text-amber-600">₦1,200</td>
+                      <td class="py-2.5 pl-2 text-right font-medium text-gray-600">₦600</td>
+                    </tr>
+                    <tr>
+                      <td class="py-2.5 pr-2 font-medium">Sweater / warm clothing</td>
+                      <td class="py-2.5 px-2 text-right font-semibold text-amber-600">₦800</td>
+                      <td class="py-2.5 pl-2 text-right font-medium text-gray-600">₦400</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- Bags & Boxes -->
+              <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-md border border-gray-100">
+                <div class="flex items-center justify-between border-b border-amber-200 pb-4 mb-4">
+                  <div>
+                    <h3 class="font-heading text-2xl font-bold text-gray-900">Bags & Boxes</h3>
+                    <p class="text-xs text-gray-500">Bags, luggage & merchandise</p>
+                  </div>
+                  <span class="text-2xl">🧳</span>
+                </div>
+                <table class="w-full text-left border-collapse">
+                  <thead>
+                    <tr class="border-b border-gray-200 text-xs font-bold text-gray-500 uppercase">
+                      <th class="py-2.5 pr-2">Item</th>
+                      <th class="py-2.5 pl-2 text-right">Price</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-gray-100 text-sm text-gray-800">
+                    <tr>
+                      <td class="py-2.5 pr-2 font-medium">Big bag, wash</td>
+                      <td class="py-2.5 pl-2 text-right font-semibold text-amber-600">₦3,000</td>
+                    </tr>
+                    <tr>
+                      <td class="py-2.5 pr-2 font-medium">Travelling box, wash</td>
+                      <td class="py-2.5 pl-2 text-right font-semibold text-amber-600">₦5,000</td>
+                    </tr>
+                    <tr>
+                      <td class="py-2.5 pr-2 font-medium">Laptop bag or backpack</td>
+                      <td class="py-2.5 pl-2 text-right font-semibold text-amber-600">₦1,000</td>
+                    </tr>
+                    <tr class="bg-amber-50/50">
+                      <td class="py-2.5 pr-2 font-medium text-amber-950">Politymos laundry bag, to buy<br><span
+                          class="text-[11px] text-amber-800 italic">Reusable, holds full household load. Yours to
+                          keep.</span></td>
+                      <td class="py-2.5 pl-2 text-right font-bold text-amber-700">₦35,000</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 2: Bedding & Home -->
+        <div id="price-tab-bedding" class="price-tab-content hidden">
+          <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-md border border-gray-100">
+            <div class="flex items-center justify-between border-b border-amber-200 pb-4 mb-6">
+              <div>
+                <h3 class="font-heading text-2xl sm:text-3xl font-bold text-gray-900">Bedding & Home Fabrics</h3>
+                <p class="text-sm text-gray-500">Deep cleaning and sanitization for home textiles</p>
+              </div>
+              <span class="text-3xl">🛏️</span>
+            </div>
+            <div class="overflow-x-auto">
+              <table class="w-full text-left border-collapse">
+                <thead>
+                  <tr class="border-b border-gray-200 text-xs font-bold text-gray-500 uppercase">
+                    <th class="py-3 pr-4">Item</th>
+                    <th class="py-3 px-4 text-right">Wash & Iron</th>
+                    <th class="py-3 pl-4 text-right">Iron Only</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-100 text-sm text-gray-800">
+                  <tr>
+                    <td class="py-3 pr-4 font-medium">Bedsheet</td>
+                    <td class="py-3 px-4 text-right font-semibold text-amber-600">₦1,000</td>
+                    <td class="py-3 pl-4 text-right font-medium text-gray-600">₦500</td>
+                  </tr>
+                  <tr>
+                    <td class="py-3 pr-4 font-medium">Pillowcase</td>
+                    <td class="py-3 px-4 text-right font-semibold text-amber-600">₦300</td>
+                    <td class="py-3 pl-4 text-right font-medium text-gray-600">₦150</td>
+                  </tr>
+                  <tr>
+                    <td class="py-3 pr-4 font-medium">Bed cover</td>
+                    <td class="py-3 px-4 text-right font-semibold text-amber-600">₦1,500</td>
+                    <td class="py-3 pl-4 text-right font-medium text-gray-600">₦750</td>
+                  </tr>
+                  <tr>
+                    <td class="py-3 pr-4 font-medium">Bed cover, thick</td>
+                    <td class="py-3 px-4 text-right font-semibold text-amber-600">₦2,500</td>
+                    <td class="py-3 pl-4 text-right font-medium text-gray-600">₦1,250</td>
+                  </tr>
+                  <tr>
+                    <td class="py-3 pr-4 font-medium">Duvet</td>
+                    <td class="py-3 px-4 text-right font-semibold text-amber-600">₦5,000</td>
+                    <td class="py-3 pl-4 text-right text-gray-400">-</td>
+                  </tr>
+                  <tr>
+                    <td class="py-3 pr-4 font-medium">White bedding, thick</td>
+                    <td class="py-3 px-4 text-right font-semibold text-amber-600">₦3,000</td>
+                    <td class="py-3 pl-4 text-right font-medium text-gray-600">₦1,500</td>
+                  </tr>
+                  <tr>
+                    <td class="py-3 pr-4 font-medium">White bedding, very thick</td>
+                    <td class="py-3 px-4 text-right font-semibold text-amber-600">₦3,500</td>
+                    <td class="py-3 pl-4 text-right font-medium text-gray-600">₦1,750</td>
+                  </tr>
+                  <tr>
+                    <td class="py-3 pr-4 font-medium">Towel</td>
+                    <td class="py-3 px-4 text-right font-semibold text-amber-600">₦1,500</td>
+                    <td class="py-3 pl-4 text-right text-gray-400">-</td>
+                  </tr>
+                  <tr>
+                    <td class="py-3 pr-4 font-medium">Table cloth</td>
+                    <td class="py-3 px-4 text-right font-semibold text-amber-600">₦1,200</td>
+                    <td class="py-3 pl-4 text-right font-medium text-gray-600">₦600</td>
+                  </tr>
+                  <tr>
+                    <td class="py-3 pr-4 font-medium">Curtain, per panel</td>
+                    <td class="py-3 px-4 text-right font-semibold text-amber-600">₦5,000</td>
+                    <td class="py-3 pl-4 text-right font-medium text-gray-600">₦2,500</td>
+                  </tr>
+                  <tr>
+                    <td class="py-3 pr-4 font-medium">Curtain, linen</td>
+                    <td class="py-3 px-4 text-right font-semibold text-amber-600">₦2,000</td>
+                    <td class="py-3 pl-4 text-right font-medium text-gray-600">₦1,000</td>
+                  </tr>
+                  <tr>
+                    <td class="py-3 pr-4 font-medium">Centre rug</td>
+                    <td class="py-3 px-4 text-right font-semibold text-amber-600">₦8,000</td>
+                    <td class="py-3 pl-4 text-right text-gray-400">-</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 3: Gym, Shoes & Native Wear -->
+        <div id="price-tab-gym-native" class="price-tab-content hidden">
+          <div class="grid lg:grid-cols-2 gap-8">
+            <!-- Native & Traditional -->
+            <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-md border border-gray-100">
+              <div class="flex items-center justify-between border-b border-amber-200 pb-4 mb-4">
+                <div>
+                  <h3 class="font-heading text-2xl font-bold text-gray-900">Native & Traditional Wear</h3>
+                  <p class="text-xs text-gray-500">Expert care for traditional African attire</p>
+                </div>
+                <span class="text-2xl">👑</span>
+              </div>
+              <table class="w-full text-left border-collapse">
+                <thead>
+                  <tr class="border-b border-gray-200 text-xs font-bold text-gray-500 uppercase">
+                    <th class="py-2.5 pr-2">Item</th>
+                    <th class="py-2.5 pl-2 text-right">Price</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-100 text-sm text-gray-800">
+                  <tr>
+                    <td class="py-2.5 pr-2 font-medium">Iro and buba</td>
+                    <td class="py-2.5 pl-2 text-right font-semibold text-amber-600">₦1,600</td>
+                  </tr>
+                  <tr>
+                    <td class="py-2.5 pr-2 font-medium">Bubu gown</td>
+                    <td class="py-2.5 pl-2 text-right font-semibold text-amber-600">₦800</td>
+                  </tr>
+                  <tr>
+                    <td class="py-2.5 pr-2 font-medium">Adire, per piece</td>
+                    <td class="py-2.5 pl-2 text-right font-semibold text-amber-600">₦1,600</td>
+                  </tr>
+                  <tr>
+                    <td class="py-2.5 pr-2 font-medium">Aso oke, single</td>
+                    <td class="py-2.5 pl-2 text-right font-semibold text-amber-600">₦1,500</td>
+                  </tr>
+                  <tr>
+                    <td class="py-2.5 pr-2 font-medium">Aso oke, two in a set</td>
+                    <td class="py-2.5 pl-2 text-right font-semibold text-amber-600">₦1,500</td>
+                  </tr>
+                  <tr>
+                    <td class="py-2.5 pr-2 font-medium">Native wear, men</td>
+                    <td class="py-2.5 pl-2 text-right font-semibold text-amber-600">₦2,000</td>
+                  </tr>
+                  <tr>
+                    <td class="py-2.5 pr-2 font-medium">Native wear, men, white</td>
+                    <td class="py-2.5 pl-2 text-right font-semibold text-amber-600">₦2,500</td>
+                  </tr>
+                  <tr>
+                    <td class="py-2.5 pr-2 font-medium">Complete agbada, white</td>
+                    <td class="py-2.5 pl-2 text-right font-semibold text-amber-600">₦3,500</td>
+                  </tr>
+                  <tr class="bg-amber-50/50">
+                    <td class="py-2.5 pr-2 font-medium text-amber-950">Native wear, men, white, express<br><span
+                        class="text-[11px] text-amber-800 italic">Ready in 24 hours</span></td>
+                    <td class="py-2.5 pl-2 text-right font-bold text-amber-700">₦5,000</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Gym & Shoes Column -->
+            <div class="space-y-8">
+              <!-- Gym & Activewear -->
+              <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-md border border-gray-100">
+                <div class="flex items-center justify-between border-b border-amber-200 pb-4 mb-4">
+                  <div>
+                    <h3 class="font-heading text-2xl font-bold text-gray-900">Gym & Activewear</h3>
+                    <p class="text-xs text-gray-500">Enzyme treated, fabric softener free cold wash</p>
+                  </div>
+                  <span class="text-2xl">🏋️</span>
+                </div>
+                <table class="w-full text-left border-collapse">
+                  <thead>
+                    <tr class="border-b border-gray-200 text-xs font-bold text-gray-500 uppercase">
+                      <th class="py-2 pr-2">Item</th>
+                      <th class="py-2 pl-2 text-right">Price</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-gray-100 text-sm text-gray-800">
+                    <tr>
+                      <td class="py-2 pr-2 font-medium">Gym top or dri-fit</td>
+                      <td class="py-2 pl-2 text-right font-semibold text-amber-600">₦1,000</td>
+                    </tr>
+                    <tr>
+                      <td class="py-2 pr-2 font-medium">Gym shorts</td>
+                      <td class="py-2 pl-2 text-right font-semibold text-amber-600">₦800</td>
+                    </tr>
+                    <tr>
+                      <td class="py-2 pr-2 font-medium">Leggings or compression wear</td>
+                      <td class="py-2 pl-2 text-right font-semibold text-amber-600">₦1,000</td>
+                    </tr>
+                    <tr>
+                      <td class="py-2 pr-2 font-medium">Sports bra</td>
+                      <td class="py-2 pl-2 text-right font-semibold text-amber-600">₦700</td>
+                    </tr>
+                    <tr>
+                      <td class="py-2 pr-2 font-medium">Gym towel</td>
+                      <td class="py-2 pl-2 text-right font-semibold text-amber-600">₦800</td>
+                    </tr>
+                    <tr>
+                      <td class="py-2 pr-2 font-medium">Socks, per pair</td>
+                      <td class="py-2 pl-2 text-right font-semibold text-amber-600">₦300</td>
+                    </tr>
+                    <tr class="bg-amber-50/50">
+                      <td class="py-2 pr-2 font-medium text-amber-950">Full session kit<br><span
+                          class="text-[11px] text-amber-800 italic">Top, bottom, towel & socks (Normally ₦2,900)</span>
+                      </td>
+                      <td class="py-2 pl-2 text-right font-bold text-amber-700">₦1,500</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- Sneakers & Shoes -->
+              <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-md border border-gray-100">
+                <div class="flex items-center justify-between border-b border-amber-200 pb-4 mb-4">
+                  <div>
+                    <h3 class="font-heading text-2xl font-bold text-gray-900">Sneakers & Footwear</h3>
+                    <p class="text-xs text-gray-500">Uppers, soles, insoles & deodorising care</p>
+                  </div>
+                  <span class="text-2xl">👟</span>
+                </div>
+                <table class="w-full text-left border-collapse">
+                  <thead>
+                    <tr class="border-b border-gray-200 text-xs font-bold text-gray-500 uppercase">
+                      <th class="py-2 pr-2">Item</th>
+                      <th class="py-2 pl-2 text-right">Price</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-gray-100 text-sm text-gray-800">
+                    <tr>
+                      <td class="py-2 pr-2 font-medium">Slides or sandals</td>
+                      <td class="py-2 pl-2 text-right font-semibold text-amber-600">₦1,500</td>
+                    </tr>
+                    <tr>
+                      <td class="py-2 pr-2 font-medium">Canvas shoes</td>
+                      <td class="py-2 pl-2 text-right font-semibold text-amber-600">₦2,000</td>
+                    </tr>
+                    <tr>
+                      <td class="py-2 pr-2 font-medium">Sneakers, standard clean<br><span
+                          class="text-[11px] text-gray-400 italic">Uppers, laces, midsole</span></td>
+                      <td class="py-2 pl-2 text-right font-semibold text-amber-600">₦2,500</td>
+                    </tr>
+                    <tr>
+                      <td class="py-2 pr-2 font-medium">Leather shoes, clean & polish</td>
+                      <td class="py-2 pl-2 text-right font-semibold text-amber-600">₦3,000</td>
+                    </tr>
+                    <tr>
+                      <td class="py-2 pr-2 font-medium">Sneakers, deep clean<br><span
+                          class="text-[11px] text-gray-400 italic">Insoles, outsole, deodorised</span></td>
+                      <td class="py-2 pl-2 text-right font-semibold text-amber-600">₦4,000</td>
+                    </tr>
+                    <tr>
+                      <td class="py-2 pr-2 font-medium">Suede or nubuck / Boots</td>
+                      <td class="py-2 pl-2 text-right font-semibold text-amber-600">₦4,500</td>
+                    </tr>
+                    <tr>
+                      <td class="py-2 pr-2 font-medium">Sole whitening (add-on)</td>
+                      <td class="py-2 pl-2 text-right font-semibold text-amber-600">₦1,500</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 4: Bulk Bundles & Delivery -->
+        <div id="price-tab-bulk-delivery" class="price-tab-content hidden">
+          <div class="grid lg:grid-cols-2 gap-8">
+            <!-- Bulk Bundles -->
+            <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-md border border-gray-100">
+              <div class="flex items-center justify-between border-b border-amber-200 pb-4 mb-4">
+                <div>
+                  <h3 class="font-heading text-2xl font-bold text-gray-900">Bulk Laundry Bundles</h3>
+                  <p class="text-xs text-gray-500">₦800 / piece for 20+ everyday clothing pieces</p>
+                </div>
+                <span class="text-2xl">📦</span>
+              </div>
+              <p class="text-xs text-gray-600 mb-4">A shirt is ₦1,000 individually but <b>₦800 in a bulk load</b>!
+                Flatmates and colleagues can combine pieces into one load.</p>
+
+              <div class="bg-amber-50 rounded-xl p-3 border border-amber-200 mb-4 text-xs text-amber-900">
+                <strong>Not included in bulk rate:</strong> Gowns, suits, beaded/embellished wear, duvets, and curtains
+                (charged at individual item rates).
+              </div>
+
+              <table class="w-full text-left border-collapse">
+                <thead>
+                  <tr class="border-b border-gray-200 text-xs font-bold text-gray-500 uppercase">
+                    <th class="py-2.5 pr-2">Pieces</th>
+                    <th class="py-2.5 px-2 text-center">Per Piece</th>
+                    <th class="py-2.5 pl-2 text-right">You Pay</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-100 text-sm text-gray-800">
+                  <tr class="bg-amber-50/40">
+                    <td class="py-2.5 pr-2 font-bold text-amber-950">20 pieces<br><span
+                        class="text-[11px] text-amber-800 italic">Bulk rate minimum</span></td>
+                    <td class="py-2.5 px-2 text-center font-semibold text-gray-700">₦800</td>
+                    <td class="py-2.5 pl-2 text-right font-bold text-amber-700">₦16,000</td>
+                  </tr>
+                  <tr>
+                    <td class="py-2.5 pr-2 font-medium">30 pieces</td>
+                    <td class="py-2.5 px-2 text-center font-semibold text-gray-700">₦800</td>
+                    <td class="py-2.5 pl-2 text-right font-semibold text-amber-600">₦24,000</td>
+                  </tr>
+                  <tr>
+                    <td class="py-2.5 pr-2 font-medium">40 pieces</td>
+                    <td class="py-2.5 px-2 text-center font-semibold text-gray-700">₦800</td>
+                    <td class="py-2.5 pl-2 text-right font-semibold text-amber-600">₦32,000</td>
+                  </tr>
+                  <tr>
+                    <td class="py-2.5 pr-2 font-medium">50 pieces</td>
+                    <td class="py-2.5 px-2 text-center font-semibold text-gray-700">₦800</td>
+                    <td class="py-2.5 pl-2 text-right font-semibold text-amber-600">₦40,000</td>
+                  </tr>
+                  <tr>
+                    <td class="py-2.5 pr-2 font-medium">100 pieces</td>
+                    <td class="py-2.5 px-2 text-center font-semibold text-gray-700">₦800</td>
+                    <td class="py-2.5 pl-2 text-right font-semibold text-amber-600">₦80,000</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Pickup & Delivery Zones -->
+            <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-md border border-gray-100">
+              <div class="flex items-center justify-between border-b border-amber-200 pb-4 mb-4">
+                <div>
+                  <h3 class="font-heading text-2xl font-bold text-gray-900">Pickup & Delivery Rates</h3>
+                  <p class="text-xs text-gray-500">Covers both legs (collection + delivery back)</p>
+                </div>
+                <span class="text-2xl">🚚</span>
+              </div>
+              <p class="text-xs text-gray-600 mb-4">Measured from our base at <b>4 Oyekan Street, Sabo, Yaba</b>.</p>
+
+              <table class="w-full text-left border-collapse">
+                <thead>
+                  <tr class="border-b border-gray-200 text-xs font-bold text-gray-500 uppercase">
+                    <th class="py-2 pr-2">Zone & Coverage</th>
+                    <th class="py-2 pl-2 text-right">Round Trip</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-100 text-sm text-gray-800">
+                  <tr>
+                    <td class="py-2.5 pr-2">
+                      <span class="font-bold text-gray-900">Zone 1</span> <span class="text-xs text-gray-500">(Under
+                        5km)</span>
+                      <p class="text-xs text-gray-500">Yaba, Sabo, Akoka, Ebute Metta, Onike, Iwaya, Jibowu, Fadeyi</p>
+                    </td>
+                    <td class="py-2.5 pl-2 text-right font-semibold text-amber-600 whitespace-nowrap">₦3,000</td>
+                  </tr>
+                  <tr>
+                    <td class="py-2.5 pr-2">
+                      <span class="font-bold text-gray-900">Zone 2</span> <span class="text-xs text-gray-500">(5 to
+                        12km)</span>
+                      <p class="text-xs text-gray-500">Surulere, Shomolu, Bariga, Gbagada, Maryland, Palmgrove, Anthony,
+                        Lagos Island</p>
+                    </td>
+                    <td class="py-2.5 pl-2 text-right font-semibold text-amber-600 whitespace-nowrap">₦4,500</td>
+                  </tr>
+                  <tr>
+                    <td class="py-2.5 pr-2">
+                      <span class="font-bold text-gray-900">Zone 3</span> <span class="text-xs text-gray-500">(12 to
+                        18km)</span>
+                      <p class="text-xs text-gray-500">Ikeja, Ikoyi, Victoria Island, Ogudu, Ketu, Oshodi, Apapa, Mushin
+                      </p>
+                    </td>
+                    <td class="py-2.5 pl-2 text-right font-semibold text-amber-600 whitespace-nowrap">₦7,000</td>
+                  </tr>
+                  <tr>
+                    <td class="py-2.5 pr-2">
+                      <span class="font-bold text-gray-900">Zone 4</span> <span class="text-xs text-gray-500">(Over
+                        18km)</span>
+                      <p class="text-xs text-gray-500">Lekki Phase 1, Ajah, Sangotedo, Festac, Egbeda, Ikotun, Agege,
+                        Ikorodu</p>
+                    </td>
+                    <td class="py-2.5 pl-2 text-right font-semibold text-amber-600 whitespace-nowrap">₦10,000</td>
+                  </tr>
+                  <tr class="bg-emerald-50/60">
+                    <td class="py-2.5 pr-2">
+                      <span class="font-bold text-emerald-950">Self Drop-Off</span>
+                      <p class="text-xs text-emerald-800">Bring it in to 4 Oyekan St, Sabo & collect when ready. No min
+                        fee.</p>
+                    </td>
+                    <td class="py-2.5 pl-2 text-right font-bold text-emerald-700 whitespace-nowrap">FREE</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Offers & Subscription Section Cards -->
+        <div class="mt-12 grid lg:grid-cols-3 gap-8">
+          <!-- Offer 1 -->
+          <div class="bg-gradient-to-br from-amber-500 to-yellow-600 rounded-2xl p-6 text-black shadow-lg">
+            <span class="bg-black text-amber-400 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">New
+              Customer Offer</span>
+            <h3 class="font-heading text-2xl font-bold mt-4 mb-2">20% Off First Order</h3>
+            <p class="text-sm font-medium mb-4 text-black/80">Special 20% discount on your first order. No code
+              required. Applies once per customer.</p>
+            <button type="button" onclick="scrollToSection('#contact')"
+              class="bg-black hover:bg-gray-900 text-amber-400 text-sm font-bold px-5 py-2.5 rounded-xl transition-colors cursor-pointer border-none font-body">Claim
+              Offer Now &rarr;</button>
+          </div>
+
+          <!-- Offer 2 -->
+          <div class="bg-white border-2 border-amber-500 rounded-2xl p-6 text-gray-900 shadow-lg">
+            <span
+              class="bg-amber-100 text-amber-900 border border-amber-300 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Starter
+              Trial</span>
+            <h3 class="font-heading text-2xl font-bold mt-4 mb-2">Try Us For ₦5,000</h3>
+            <p class="text-sm text-gray-600 mb-4">10 everyday pieces washed, ironed & delivered within 48-72h. Normally
+              ₦8,500. Limit 1 per household.</p>
+            <button type="button" onclick="scrollToSection('#contact')"
+              class="bg-amber-500 hover:bg-amber-600 text-black text-sm font-bold px-5 py-2.5 rounded-xl transition-colors cursor-pointer border-none font-body">Book
+              ₦5k Trial &rarr;</button>
+          </div>
+
+          <!-- Custom Quote Card -->
+          <div
+            class="bg-gradient-to-br from-black to-gray-900 rounded-2xl p-6 text-white border-2 border-amber-500 shadow-lg">
+            <span
+              class="bg-amber-500/20 text-amber-400 border border-amber-500/40 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Subscription
+              & Custom</span>
+            <h3 class="font-heading text-2xl font-bold mt-4 mb-2">Weekly & Monthly Plans</h3>
+            <p class="text-sm text-gray-300 mb-4">Tailored plans for households, executives, corporate offices, and
+              short-let apartments.</p>
+            <button type="button" id="btn-get-quote"
+              class="w-full bg-gradient-to-r from-amber-500 to-yellow-600 hover:from-amber-600 hover:to-yellow-700 text-black font-bold text-sm py-2.5 rounded-xl transition-colors cursor-pointer border-none font-body">Get
+              Custom Quote</button>
+          </div>
+        </div>
+
       </div>
     </section><!-- Process Section -->
     <section id="process" class="py-20 bg-white">
@@ -967,6 +1743,13 @@
             <ul class="space-y-3 text-gray-400 text-sm">
               <li><a href="#process" class="hover:text-amber-400 transition-colors">How It Works</a></li>
               <li><a href="#pricing" class="hover:text-amber-400 transition-colors">Pricing</a></li>
+              <li><button type="button" onclick="openPdfModal()"
+                  class="hover:text-amber-400 transition-colors bg-transparent border-none p-0 text-left cursor-pointer font-body text-gray-400 text-sm">View
+                  Price List (PDF)</button></li>
+              <li><a href="assets/Politymos_Price_List_October_2026.pdf"
+                  download="Politymos_Price_List_October_2026.pdf"
+                  class="hover:text-amber-400 transition-colors text-amber-400 font-medium">Download Catalogue (PDF)</a>
+              </li>
               <li><a href="#contact" class="hover:text-amber-400 transition-colors">Book Pickup</a></li>
             </ul>
           </div>
