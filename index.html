@@ -214,11 +214,11 @@
             </svg>
           </button>
         </div>
-        <div class="p-6 space-y-6">
+        <div class="p-5 space-y-4">
           <p class="text-gray-600 text-sm">Choose a plan and we'll send you a personalised quote.</p>
-          <div class="space-y-3">
+          <div class="space-y-2">
             <div id="plan-weekly"
-              class="plan-card border-2 border-amber-200 rounded-xl p-4 cursor-pointer hover:bg-amber-50/80 transition-all"
+              class="plan-card border-2 border-amber-200 rounded-xl p-3 cursor-pointer hover:bg-amber-50/80 transition-all"
               onclick="selectPlan('weekly')">
               <div class="flex items-center gap-3">
                 <input type="radio" id="weekly-plan" name="plan" value="weekly"
@@ -228,7 +228,7 @@
               <p class="text-sm text-gray-600 ml-8 mt-1">Perfect for busy professionals</p>
             </div>
             <div id="plan-monthly"
-              class="plan-card border-2 border-amber-200 rounded-xl p-4 cursor-pointer hover:bg-amber-50/80 transition-all"
+              class="plan-card border-2 border-amber-200 rounded-xl p-3 cursor-pointer hover:bg-amber-50/80 transition-all"
               onclick="selectPlan('monthly')">
               <div class="flex items-center gap-3">
                 <input type="radio" id="monthly-plan" name="plan" value="monthly"
@@ -238,25 +238,41 @@
               <p class="text-sm text-gray-600 ml-8 mt-1">Best value for families</p>
             </div>
           </div>
-          <form id="subscription-form" class="space-y-4">
+          <form id="subscription-form" class="space-y-3 relative">
             <div>
-              <label for="sub-name" class="block text-sm font-medium text-gray-700 mb-2">Your Name</label>
+              <label for="sub-name" class="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
               <input type="text" id="sub-name" name="sub-name" required placeholder="Enter your name" class="w-full">
             </div>
             <div>
-              <label for="sub-phone" class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+              <label for="sub-phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
               <input type="tel" id="sub-phone" name="sub-phone" required placeholder="Your phone number" class="w-full">
             </div>
             <div>
-              <label for="sub-email" class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+              <label for="sub-email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
               <input type="email" id="sub-email" name="sub-email" required placeholder="Your email address"
                 class="w-full">
             </div>
-            <div id="subscription-success"
-              class="hidden p-5 bg-amber-50 rounded-xl border border-amber-200 text-center">
-              <span class="text-3xl block mb-2">✓</span>
-              <p class="text-amber-800 font-medium">Thank you! We'll contact you soon with your custom quote.</p>
+            <button type="submit" id="quote-submit-btn"
+              class="w-full bg-gradient-to-r from-amber-500 to-yellow-600 text-black py-3.5 rounded-xl font-semibold hover:from-amber-600 hover:to-yellow-700 transition-colors">
+              Submit Quote Request
+            </button>
+            <div id="quote-form-loading"
+              class="hidden absolute inset-0 bg-white/80 backdrop-blur-[1px] rounded-xl flex flex-col items-center justify-center z-20">
+              <svg class="animate-spin h-8 w-8 text-amber-500 mb-3" xmlns="http://www.w3.org/2000/svg" fill="none"
+                viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor"
+                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                </path>
+              </svg>
+              <p class="text-gray-800 font-semibold">Submitting your request...</p>
             </div>
+          </form>
+          <div id="subscription-success"
+            class="hidden p-5 bg-amber-50 rounded-xl border border-amber-200 text-center">
+            <span class="text-3xl block mb-2">✓</span>
+            <p class="text-amber-800 font-medium">Thank you! We'll contact you soon with your custom quote.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -1680,7 +1696,7 @@
           </div><!-- Inquiry Form -->
           <div class="bg-white rounded-2xl p-8 shadow-lg">
             <h3 class="font-heading text-2xl font-bold text-gray-800 mb-6">Quick Inquiry</h3>
-            <form id="inquiry-form" class="space-y-5">
+            <form id="inquiry-form" class="space-y-5 relative">
               <div><label for="name" class="block text-sm font-medium text-gray-700 mb-2">Your Name *</label> <input
                   type="text" id="name" name="name" required placeholder="Enter your name">
               </div>
@@ -1706,9 +1722,20 @@
               <div><label for="special-instructions" class="block text-sm font-medium text-gray-700 mb-2">Special
                   Instructions</label> <textarea id="special-instructions" name="special-instructions"
                   placeholder="E.g. No starch, Hand wash only, etc." rows="3" class="resize-none"></textarea>
-              </div><button type="submit"
+              </div><button type="submit" id="inquiry-submit-btn"
                 class="w-full bg-gradient-to-r from-amber-500 to-yellow-600 text-black py-4 rounded-xl font-semibold hover:from-amber-600 hover:to-yellow-700 transition-colors">
                 Send Inquiry </button>
+              <div id="inquiry-form-loading"
+                class="hidden absolute inset-0 bg-white/80 backdrop-blur-[1px] rounded-xl flex flex-col items-center justify-center z-20">
+                <svg class="animate-spin h-8 w-8 text-amber-500 mb-3" xmlns="http://www.w3.org/2000/svg" fill="none"
+                  viewBox="0 0 24 24">
+                  <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                  <path class="opacity-75" fill="currentColor"
+                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                  </path>
+                </svg>
+                <p class="text-gray-800 font-semibold">Sending your inquiry...</p>
+              </div>
             </form>
             <div id="form-success"
               class="hidden mt-4 p-4 bg-amber-50 rounded-xl border border-amber-200 text-amber-800 text-center"><span
@@ -1814,7 +1841,7 @@
       let selectedPlan = '';
 
       const AIRTABLE_TABLE_NAME = 'Quick Inquiries';
-      const AIRTABLE_QUOTE_TABLE_NAME = 'Quote Requests';
+      const AIRTABLE_QUOTE_TABLE_NAME = 'Quote Request';
 
 
       // // Save data and send to Airtable
@@ -2035,30 +2062,7 @@
         });
       }
 
-      const subForm = document.getElementById('subscription-form');
-      if (subForm) {
-        subForm.addEventListener('submit', async function (e) {
-          e.preventDefault();
-          const name = document.getElementById('sub-name').value;
-          const phone = document.getElementById('sub-phone').value;
-          const email = document.getElementById('sub-email').value;
-          await saveQuoteToAirtable({
-            name,
-            phone,
-            email,
-            plan: selectedPlan || ''
-          });
-
-          subForm.style.display = 'none';
-          document.getElementById('subscription-success').classList.remove('hidden');
-          setTimeout(() => {
-            closeSubscriptionModal();
-            subForm.reset();
-            subForm.style.display = 'block';
-            document.getElementById('subscription-success').classList.add('hidden');
-          }, 3000);
-        });
-      }
+      // Quote form submit is handled in main.js (posts to /api/quote → "Quote Request" sheet)
 
       document.getElementById('close-modal')?.addEventListener('click', closeSubscriptionModal);
       document.getElementById('subscription-modal')?.addEventListener('click', (e) => {

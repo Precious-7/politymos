@@ -220,6 +220,10 @@ document.addEventListener("DOMContentLoaded", () => {
         ?.addEventListener("click", () => window.selectPlan("monthly"));
 
     // ----- Helper: Form Submit Loading Spinner -----
+    function setOverlayLoading(overlay, isLoading) {
+        overlay?.classList.toggle("hidden", !isLoading);
+    }
+
     function setButtonLoading(btn, isLoading, loadingText = "Submitting...") {
         if (!btn) return;
         if (isLoading) {
@@ -251,6 +255,7 @@ document.addEventListener("DOMContentLoaded", () => {
         e.preventDefault();
 
         const submitBtn = inquiryForm.querySelector('button[type="submit"]');
+        const loadingOverlay = document.getElementById("inquiry-form-loading");
 
         const payload = {
             name: document.getElementById("name")?.value.trim(),
@@ -266,6 +271,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         setButtonLoading(submitBtn, true, "Sending Inquiry...");
+        setOverlayLoading(loadingOverlay, true);
 
         try {
             const res = await fetch("/api/inquiry", {
@@ -281,6 +287,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 gtag('event', 'conversion', { 'send_to': 'AW-17962094946/RMpFCPnEjYUcEOKi__RC' });
             }
 
+            setOverlayLoading(loadingOverlay, false);
             inquiryForm.style.display = "none";
             document.getElementById("form-success")?.classList.remove("hidden");
 
@@ -294,6 +301,7 @@ document.addEventListener("DOMContentLoaded", () => {
         } catch (err) {
             console.error("❌ Inquiry error:", err);
             alert("Inquiry submit failed.");
+            setOverlayLoading(loadingOverlay, false);
             setButtonLoading(submitBtn, false);
         }
     });
@@ -305,6 +313,9 @@ document.addEventListener("DOMContentLoaded", () => {
         e.preventDefault();
 
         const submitBtn = quoteForm.querySelector('button[type="submit"]');
+        const loadingOverlay = document.getElementById("quote-form-loading");
+        const checkedPlan = document.querySelector('input[name="plan"]:checked')?.value;
+        if (checkedPlan) window.selectedPlan = checkedPlan;
 
         if (!window.selectedPlan) {
             alert("Please select Weekly or Monthly plan.");
@@ -324,6 +335,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         setButtonLoading(submitBtn, true, "Submitting Request...");
+        setOverlayLoading(loadingOverlay, true);
 
         try {
             const res = await fetch("/api/quote", {
@@ -339,6 +351,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 gtag('event', 'conversion', { 'send_to': 'AW-17962094946/RMpFCPnEjYUcEOKi__RC' });
             }
 
+            setOverlayLoading(loadingOverlay, false);
             quoteForm.style.display = "none";
             document.getElementById("subscription-success")?.classList.remove("hidden");
 
@@ -354,6 +367,7 @@ document.addEventListener("DOMContentLoaded", () => {
         } catch (err) {
             console.error("❌ Quote error:", err);
             alert("Quote submit failed.");
+            setOverlayLoading(loadingOverlay, false);
             setButtonLoading(submitBtn, false);
         }
     });

@@ -20,7 +20,7 @@ export default async function handler(req, res) {
 
         const AIRTABLE_PAT = process.env.AIRTABLE_PAT;
         const AIRTABLE_BASE_ID = process.env.AIRTABLE_BASE_ID;
-        const INQUIRY_TABLE = process.env.INQUIRY_TABLE || "Quick Inquiries";
+        const INQUIRY_TABLE = "Quick Inquiries";
 
         if (!AIRTABLE_PAT || !AIRTABLE_BASE_ID) {
             return res.status(500).json({ error: "Missing AIRTABLE_PAT or AIRTABLE_BASE_ID env vars" });
