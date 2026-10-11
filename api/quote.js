@@ -1,12 +1,29 @@
 // api/quote.js
 
+function parseBody(req) {
+    const body = req.body;
+    if (!body) return {};
+    if (typeof body === "string") {
+        try {
+            return JSON.parse(body);
+        } catch {
+            return {};
+        }
+    }
+    return body;
+}
+
 export default async function handler(req, res) {
     if (req.method !== "POST") {
         return res.status(405).json({ error: "Method Not Allowed" });
     }
 
     try {
-        const { name, phone, email, plan } = req.body;
+        const body = parseBody(req);
+        const name = (body.name || "").trim();
+        const phone = (body.phone || "").trim();
+        const email = (body.email || "").trim();
+        const plan = (body.plan || "").trim();
 
         if (!name || !phone || !email || !plan) {
             return res.status(400).json({ error: "Name, Phone, Email, Plan required" });
@@ -14,7 +31,7 @@ export default async function handler(req, res) {
 
         const AIRTABLE_PAT = process.env.AIRTABLE_PAT;
         const AIRTABLE_BASE_ID = process.env.AIRTABLE_BASE_ID;
-        const QUOTE_TABLE = "Quote Request";
+        const QUOTE_TABLE = "Quote Requests";
 
         if (!AIRTABLE_PAT || !AIRTABLE_BASE_ID) {
             return res.status(500).json({ error: "Server env vars not set" });
@@ -41,6 +58,7 @@ export default async function handler(req, res) {
         const data = await airtableRes.json();
 
         if (!airtableRes.ok) {
+            console.error("Airtable Quote Requests error:", airtableRes.status, data);
             return res.status(airtableRes.status).json(data);
         }
 
