@@ -344,7 +344,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 body: JSON.stringify(payload),
             });
 
-            if (!res.ok) throw new Error("Quote failed");
+            if (!res.ok) {
+                const errBody = await res.text();
+                throw new Error(`Quote failed (${res.status}): ${errBody}`);
+            }
 
             // Trigger Google Ads conversion event
             if (typeof gtag === 'function') {
